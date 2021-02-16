@@ -21,9 +21,9 @@ const Header = () => {
                             </form>
                         </div>
                     </div>
-                    <div class="col-md-4 col-sm-5 col-xs-6 logo-responsive w-100">
+                    <div class="col-md-4 col-sm-5 col-xs-6 logo-responsive">
                         <div class="logo-area">
-                            <a href="/" class="pull-left logo"><img src="http://st.ourhtmldemo.com/template/organic_store/images/logo/logo.png" alt="LOGO"/></a>
+                            <a href="/" class="pull-left logo"><img src="http://st.ourhtmldemo.com/template/organic_store/images/logo/logo.png" alt="LOGO" className="img-fluid"/></a>
                         </div>
                     </div>
                     <div className="col-md-4 col-sm-7 col-xs-6 pdt-14 w-100 d-flex">
@@ -37,8 +37,10 @@ const Header = () => {
                             </div>
                         </div>
                         <div className="p-3">
-                            <FontAwesomeIcon className="iconBg" icon={faShoppingBag} style={{height:32, width:32}}></FontAwesomeIcon>
-                            <span className="font-weight-bold text-danger cartN p-1">2</span>
+                            <Link to="/cart">
+                                <FontAwesomeIcon className="iconBg" icon={faShoppingBag} style={{height:32, width:32}}></FontAwesomeIcon>
+                                <span className="font-weight-bold text-danger cartN p-1">2</span>
+                            </Link>
                         </div>
                         
                     </div>
@@ -78,7 +80,7 @@ const Header = () => {
                                 <NavDropdown.Divider />
                                 <NavDropdown.Item href="/faq">FAQ</NavDropdown.Item>
                             </NavDropdown>
-                            <Nav.Link href="/aboutUs" className="font-weight-bold m-2 ml-3">ABOUT US</Nav.Link>
+                            <Nav.Link href="/contactUs" className="font-weight-bold m-2 ml-3">CONTACT US</Nav.Link>
                         </Nav>
                     </Navbar.Collapse>
                 </Navbar>

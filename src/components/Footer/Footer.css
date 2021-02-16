@@ -1,0 +1,17 @@
+.footerBg{
+    background-color: #363636;
+}
+.bythemBtn{
+    background-color: #7fb401;
+    color: #ffffff;
+}
+.bythemBtn:hover{
+    background-color: #ffffff;
+    color: #7fb401;
+}
+.footerBottomBg{
+    background-color: #2F2F2F;
+}
+.textHighlight{
+    color: #7fb401;
+}

@@ -29,6 +29,7 @@ import GallerySingle from "./components/Gallery/GallerySingle/GallerySingle";
 import FAQ from "./components/Pages/FAQ/FAQ";
 import Page404v from "./components/Pages/Page404v/Page404v";
 import Testimonials from "./components/Pages/Testimonials/Testimonials";
+import Cart from "./components/Cart/Cart";
 
 function App() {
   return (
@@ -92,6 +93,9 @@ function App() {
           </Route>
           <Route path="/shopWithSidebar">
             <ShopWithSidebar />
+          </Route>
+          <Route path="/cart">
+            <Cart />
           </Route>
           <Route path="*">
             <NoMatch />
