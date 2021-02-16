@@ -27,7 +27,6 @@ import GalleryGrid from "./components/Gallery/GalleryGrid/GalleryGrid";
 import GalleryMasonary from "./components/Gallery/GalleryMasonary/GalleryMasonary";
 import GallerySingle from "./components/Gallery/GallerySingle/GallerySingle";
 import FAQ from "./components/Pages/FAQ/FAQ";
-import Page404v from "./components/Pages/Page404v/Page404v";
 import Testimonials from "./components/Pages/Testimonials/Testimonials";
 import Cart from "./components/Cart/Cart";
 
@@ -72,9 +71,6 @@ function App() {
           </Route>
           <Route path="/faq">
             <FAQ />
-          </Route>
-          <Route path="/page404v">
-            <Page404v />
           </Route>
           <Route path="/testimonials">
             <Testimonials />

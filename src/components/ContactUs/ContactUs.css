@@ -1,0 +1,15 @@
+.customBg{
+    background-image: url('http://st.ourhtmldemo.com/template/organic_store/images/background/404.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    height: 60vh;
+}
+
+.textHightlight{
+    color: #7FB401;
+}
+.iconBg{
+    color: #7FB401;
+}

@@ -14,7 +14,7 @@ const Footer = () => {
                     <a href="index.html"><img src="http://st.ourhtmldemo.com/template/organic_store/images/logo/logo-2.png" alt="Logo" className="p-2 img-fluid"/></a>
                     <p className="p-2">Denouncing pleasures and praising pain was born and I will give you a complete account of the system.</p><p className="p-2">Expound that actual teachings the great explorer of the truth, the master-builder of human happiness no one rejects, likes, or avoids pleasure itself rationally. </p>
 
-                    <Link to="/" class="bythemBtn font-weight-bold p-2 pl-3 pr-3 rounded">BUY THEM</Link>
+                    <Link to="/" class="customBtn font-weight-bold p-2 pl-3 pr-3 rounded ml-2">BUY THEM</Link>
 
                 </div>
 
