@@ -1,0 +1,35 @@
+.iconBg{
+    color: #7FB401;
+}
+.cartN{
+    border: 1px solid #7FB401;
+    border-radius: 50%;
+}
+.NavBg{
+    background-color: #7FB401;
+}
+.navLink{
+    color: #ffffff;
+}
+.socialFb{
+    color:#0056B3;
+    background-color: #ffffff;
+    border-radius: 50%;
+}
+.socialTwt{
+    color:#ffffff;
+    background-color: #00A2F3;
+    border-radius: 50%;
+    padding: 3px;
+}
+.socialGp{
+    color:#DD4D42;
+    background-color: #ffffff;
+    border-radius: 50%;
+    padding: 1px;
+}
+.socialPrt{
+    color:#DF1A26;
+    background-color: #ffffff;
+    border-radius: 50%;
+}

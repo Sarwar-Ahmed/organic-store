@@ -1,10 +1,8 @@
 import React from "react";
-import 'bootstrap/dist/css/bootstrap.min.css';
 import {
   BrowserRouter as Router,
   Switch,
-  Route,
-  Link
+  Route
 } from "react-router-dom";
 import Home from "./components/Home/Home";
 import NoMatch from "./components/NoMatch/NoMatch";
@@ -34,89 +32,75 @@ import Testimonials from "./components/Pages/Testimonials/Testimonials";
 
 function App() {
   return (
-    <Router>
-      <Switch>
-        <Route exact path="/">
-          <Home />
-        </Route>
-        <Route path="/home">
-          <Home />
-        </Route>
-        <Route path="/header">
-          <Header />
-        </Route>
-        <Route path="/footer">
-          <Footer />
-        </Route>
-        <Route path="/aboutUs">
-          <AboutUs />
-        </Route>
-        <Route path="/contactUs">
-          <ContactUs />
-        </Route>
-        <Route path="/gallery">
-          <Gallery />
-        </Route>
-        <Route path="/galleryGrid">
-          <GalleryGrid />
-        </Route>
-        <Route path="/galleryMasonary">
-          <GalleryMasonary />
-        </Route>
-        <Route path="/gallerySingle">
-          <GallerySingle />
-        </Route>
-        <Route path="/news">
-          <News />
-        </Route>
-        <Route path="/newsMasonary">
-          <NewsMasonary />
-        </Route>
-        <Route path="/newsSingle">
-          <NewsSingle />
-        </Route>
-        <Route path="/newsStandard">
-          <NewsStandard />
-        </Route>
-        <Route path="/newsWithSidebar">
-          <NewsWithSidebar />
-        </Route>
-        <Route path="/pages">
-          <Pages />
-        </Route>
-        <Route path="/faq">
-          <FAQ />
-        </Route>
-        <Route path="/page404v">
-          <Page404v />
-        </Route>
-        <Route path="/testimonials">
-          <Testimonials />
-        </Route>
-        <Route path="/store">
-          <Store />
-        </Route>
-        <Route path="/cartPage">
-          <CartPage />
-        </Route>
-        <Route path="/checkoutPage">
-          <CheckoutPage />
-        </Route>
-        <Route path="/myAccount">
-          <MyAccount />
-        </Route>
-        <Route path="/productDetail">
-          <ProductDetail />
-        </Route>
-        <Route path="/shopWithSidebar">
-          <ShopWithSidebar />
-        </Route>
-        <Route path="*">
-          <NoMatch />
-        </Route>
-        
-      </Switch>
-    </Router>
+    <div>
+      <Router>
+        <Header />
+        <Switch>
+          <Route exact path="/">
+            <Home />
+          </Route>
+          <Route path="/home">
+            <Home />
+          </Route>
+          <Route path="/aboutUs">
+            <AboutUs />
+          </Route>
+          <Route path="/contactUs">
+            <ContactUs />
+          </Route>
+          <Route path="/galleryGrid">
+            <GalleryGrid />
+          </Route>
+          <Route path="/galleryMasonary">
+            <GalleryMasonary />
+          </Route>
+          <Route path="/gallerySingle">
+            <GallerySingle />
+          </Route>
+          <Route path="/newsMasonary">
+            <NewsMasonary />
+          </Route>
+          <Route path="/newsSingle">
+            <NewsSingle />
+          </Route>
+          <Route path="/newsStandard">
+            <NewsStandard />
+          </Route>
+          <Route path="/newsWithSidebar">
+            <NewsWithSidebar />
+          </Route>
+          <Route path="/faq">
+            <FAQ />
+          </Route>
+          <Route path="/page404v">
+            <Page404v />
+          </Route>
+          <Route path="/testimonials">
+            <Testimonials />
+          </Route>
+          <Route path="/cartPage">
+            <CartPage />
+          </Route>
+          <Route path="/checkoutPage">
+            <CheckoutPage />
+          </Route>
+          <Route path="/myAccount">
+            <MyAccount />
+          </Route>
+          <Route path="/productDetail">
+            <ProductDetail />
+          </Route>
+          <Route path="/shopWithSidebar">
+            <ShopWithSidebar />
+          </Route>
+          <Route path="*">
+            <NoMatch />
+          </Route>
+          
+        </Switch>
+        <Footer />
+      </Router>
+    </div>
   );
 }
 
