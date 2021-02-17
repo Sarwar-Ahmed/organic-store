@@ -16,7 +16,7 @@ const Faq = () => {
                 </div>
             </div>
             <div class="p-5">
-                <Accordion defaultActiveKey="0" className="p-5">
+                <Accordion defaultActiveKey="0" className="p-md-5">
                     <Card>
                         <Accordion.Toggle as={Card.Header} eventKey="0" >
                             <div className="d-flex">

@@ -82,9 +82,11 @@ const Footer = () => {
                     
                 </div>
             </div>
-            <div class="d-flex footerBottomBg text-light p-3">
-                <h6 class="mr-auto pt-3">Copyrights © 2015 All Rights Reserved by <Link to="/"><span className="textHighlight">Sarwar</span></Link></h6>
-                <div class="d-flex">
+            <div class="row footerBottomBg text-light p-3">
+                <div className="col-md-6 pl-5">
+                    <h6 class="mr-auto pt-3">Copyrights © 2015 All Rights Reserved by <Link to="/"><span className="textHighlight">Sarwar</span></Link></h6>
+                </div>
+                <div class="col-md-6 d-flex pl-5">
                     <Link to="/" className="p-2"><FontAwesomeIcon className="mr-2" style={{height: 45, width:45, color: 'white'}} icon={faCcVisa}></FontAwesomeIcon></Link>
                     <Link to="/" className="p-2"><FontAwesomeIcon className="mr-2" style={{height: 45, width:45, color: 'white'}} icon={faCcMastercard}></FontAwesomeIcon></Link>
                     <Link to="/" className="p-2"><FontAwesomeIcon className="mr-2" style={{height: 45, width:45, color: 'white'}} icon={faCcPaypal}></FontAwesomeIcon></Link>

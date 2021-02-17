@@ -1,9 +1,21 @@
 import React from 'react';
+import Award from './Award/Award';
+import DeliveryProcess from './DeliveryProcess/DeliveryProcess';
+import StoryAboutUs from './StoryAboutUs/StoryAboutUs';
 
 const AboutUs = () => {
     return (
         <div>
-            <h1>This is about us</h1>
+            <div class="customBg text-center text-light p-5">
+                <div className="p-5 m-5">
+                    <h2>ABOUTUS US</h2>
+                    <h5>WELCOME TO CERTIFIED ONLINE ORGANIC PRODUCTS SUPPLIERS</h5>
+                    <p>We provide <span className="textHightlight">100% organic</span> products</p>
+                </div>
+            </div>
+            <StoryAboutUs />
+            <DeliveryProcess />
+            <Award />
         </div>
     );
 };

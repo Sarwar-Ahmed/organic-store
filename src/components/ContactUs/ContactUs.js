@@ -57,7 +57,7 @@ const ContactUs = () => {
                     </div>
                 </div>
                 <div class="col-md-8 col-sm-6 col-xs-12">
-                    <div class="">
+                <div class="">
                         <div class="ml-4 p-1">
                             <h2>SEND US MESSAGE</h2>
                         </div>
