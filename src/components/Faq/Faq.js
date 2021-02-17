@@ -24,7 +24,7 @@ const Faq = () => {
                                     <span class=""><FontAwesomeIcon icon={faQuestionCircle} style={{height: 25, width: 25}}></FontAwesomeIcon></span>
                                 </div>
                                 <div className="mr-auto p-2">
-                                    <p>What are the benefits of organic food?</p>
+                                    <h5>What are the benefits of organic food?</h5>
                                 </div>
                                 <div class="p-2">
                                     <Link class=""><FontAwesomeIcon className="textHighlight" icon={faPlus}></FontAwesomeIcon></Link>
@@ -42,7 +42,7 @@ const Faq = () => {
                                     <span class=""><FontAwesomeIcon icon={faQuestionCircle} style={{height: 25, width: 25}}></FontAwesomeIcon></span>
                                 </div>
                                 <div className="mr-auto p-2">
-                                    <p>What are the most important foods to buy organic?</p>
+                                    <h5>What are the most important foods to buy organic?</h5>
                                 </div>
                                 <div class="p-2">
                                     <Link class=""><FontAwesomeIcon className="textHighlight" icon={faPlus}></FontAwesomeIcon></Link>
@@ -60,7 +60,7 @@ const Faq = () => {
                                     <span class=""><FontAwesomeIcon icon={faQuestionCircle} style={{height: 25, width: 25}}></FontAwesomeIcon></span>
                                 </div>
                                 <div className="mr-auto p-2">
-                                    <p>How is organic better for the environment?</p>
+                                    <h5>How is organic better for the environment?</h5>
                                 </div>
                                 <div class="p-2">
                                     <Link class=""><FontAwesomeIcon className="textHighlight" icon={faPlus}></FontAwesomeIcon></Link>
@@ -78,7 +78,7 @@ const Faq = () => {
                                     <span class=""><FontAwesomeIcon icon={faQuestionCircle} style={{height: 25, width: 25}}></FontAwesomeIcon></span>
                                 </div>
                                 <div className="mr-auto p-2">
-                                    <p>Must I get air conditioning serviced?</p>
+                                    <h5>Must I get air conditioning serviced?</h5>
                                 </div>
                                 <div class="p-2">
                                     <Link class=""><FontAwesomeIcon className="textHighlight" icon={faPlus}></FontAwesomeIcon></Link>
@@ -96,7 +96,7 @@ const Faq = () => {
                                     <span class=""><FontAwesomeIcon icon={faQuestionCircle} style={{height: 25, width: 25}}></FontAwesomeIcon></span>
                                 </div>
                                 <div className="mr-auto p-2">
-                                    <p>How do i Schedule a Service Appoinment?</p>
+                                    <h5>How do i Schedule a Service Appoinment?</h5>
                                 </div>
                                 <div class="p-2">
                                     <Link class=""><FontAwesomeIcon className="textHighlight" icon={faPlus}></FontAwesomeIcon></Link>
@@ -108,25 +108,6 @@ const Faq = () => {
                         </Accordion.Collapse>
                     </Card>
                 </Accordion>
-            
-                        {/*<div class="accordion-box">
-                            <div class="accordion animated out" data-delay="0" data-animation="fadeInUp">
-                                <div class="acc-btn">
-                                    What are the benefits of organic food?
-                                    <div class="toggle-icon">
-                                        <span class="plus fa fa-plus"></span><span class="minus fa fa-minus"></span>
-                                    </div>
-                                    <div class="left-icon">
-                                        <span class="fa fa-question-circle"></span>
-                                    </div>
-                                </div>
-                                <div class="acc-content">
-                                    
-                                </div>
-                            </div>
-                            
-                        </div>
-                    </div>*/}
             </div>
         </div>
     );
