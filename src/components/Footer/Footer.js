@@ -1,9 +1,7 @@
 import { faCcDiscover, faCcMastercard, faCcPaypal, faCcVisa } from '@fortawesome/free-brands-svg-icons';
 import { faAngleRight, faClock, faCreditCard, faEnvelope, faHome, faPhone } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { Button } from 'bootstrap';
 import React from 'react';
-import { Container } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import './Footer.css';
 const Footer = () => {

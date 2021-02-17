@@ -10,7 +10,7 @@ import { faFacebook, faGooglePlus, faPinterest, faTwitter } from '@fortawesome/f
 
 const Header = () => {
     return (
-        <div className="mx-auto">
+        <div>
             <div>
                 <div className="row p-3">
                     <div class="col-md-4 col-sm-12 col-xs-12">
@@ -51,36 +51,13 @@ const Header = () => {
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="mr-auto">
-                            <Nav.Link href="/home" className="font-weight-bold m-2 ml-3">HOME</Nav.Link>
-                            <Nav.Link href="/aboutUs" className="font-weight-bold m-2 ml-3">ABOUT US</Nav.Link>
-                            <NavDropdown title="STORE" id="basic-nav-dropdown" className="font-weight-bold m-2 ml-3">
-                                <NavDropdown.Item href="/shopWithSidebar">Shop With Sidebar</NavDropdown.Item>
-                                <NavDropdown.Item href="/productDetail">Product Detail</NavDropdown.Item>
-                                <NavDropdown.Item href="/cartPage">Cart Page</NavDropdown.Item>
-                                <NavDropdown.Divider />
-                                <NavDropdown.Item href="/checkoutPage">Checkout Page</NavDropdown.Item>
-                                <NavDropdown.Item href="/myAccount">My Account</NavDropdown.Item>
-                            </NavDropdown>
-                            <NavDropdown title="NEWS" id="basic-nav-dropdown" className="font-weight-bold m-2 ml-3">
-                                <NavDropdown.Item href="/newsStandard">News Standard</NavDropdown.Item>
-                                <NavDropdown.Item href="/newsWithSidebar">News With Sidebar</NavDropdown.Item>
-                                <NavDropdown.Item href="/newsMasonary">News Masonary</NavDropdown.Item>
-                                <NavDropdown.Divider />
-                                <NavDropdown.Item href="/newsSingle">News Single</NavDropdown.Item>
-                            </NavDropdown>
-                            <NavDropdown title="GALLERY" id="basic-nav-dropdown" className="font-weight-bold m-2 ml-3">
-                                <NavDropdown.Item href="/galleryGrid">Gallery Grid</NavDropdown.Item>
-                                <NavDropdown.Item href="/galleryMasonary">Gallery Masonary</NavDropdown.Item>
-                                <NavDropdown.Divider />
-                                <NavDropdown.Item href="/gallerySingle">Gallery Single</NavDropdown.Item>
-                            </NavDropdown>
-                            <NavDropdown className="font-weight-bold m-2 ml-3" title="PAGES" id="basic-nav-dropdown" >
-                                <NavDropdown.Item href="/testimonials">Testimonials</NavDropdown.Item>
-                                <NavDropdown.Item href="/noMatch">404v Page</NavDropdown.Item>
-                                <NavDropdown.Divider />
-                                <NavDropdown.Item href="/faq">FAQ</NavDropdown.Item>
-                            </NavDropdown>
-                            <Nav.Link href="/contactUs" className="font-weight-bold m-2 ml-3">CONTACT US</Nav.Link>
+                            <Link to="/home" className="text-light font-weight-bold m-2 ml-3">HOME</Link>
+                            <Link to="/aboutUs" className="text-light font-weight-bold m-2 ml-3">ABOUT US</Link>
+                            <Link to="/store" className="text-light font-weight-bold m-2 ml-3">STORE</Link>
+                            <Link to="/news" className="text-light font-weight-bold m-2 ml-3">NEWS</Link>
+                            <Link to="/gallery" className="text-light font-weight-bold m-2 ml-3">GALLERY</Link>
+                            <Link to="/faq" className="text-light font-weight-bold m-2 ml-3">FAQ</Link>
+                            <Link to="/contactUs" className="text-light font-weight-bold m-2 ml-3">CONTACT US</Link>
                         </Nav>
                     </Navbar.Collapse>
                 </Navbar>
