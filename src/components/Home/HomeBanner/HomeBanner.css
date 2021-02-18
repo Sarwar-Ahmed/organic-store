@@ -1,0 +1,12 @@
+.firstBannerBg{
+    background-image: url("http://st.ourhtmldemo.com/template/organic_store/images/about/1.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+.secondBannerBg{
+    background-image: url("http://st.ourhtmldemo.com/template/organic_store/images/about/2.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}

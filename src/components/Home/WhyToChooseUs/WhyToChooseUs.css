@@ -1,0 +1,13 @@
+.themeTitleBg{
+    background-image: url('http://st.ourhtmldemo.com/template/organic_store/images/background/1.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+.chooseOption{
+    background-color: #ffffff;
+}
+.chooseOption:hover{
+    color: #ffffff;
+    background-color: #7FB401;
+}
