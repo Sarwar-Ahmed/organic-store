@@ -11,70 +11,91 @@ const OurFarmers = () => {
                     </div> 
                 </div>
             </div>
-            <div class="text-center my-3">
-                <div class="row mx-auto my-auto">
-                    <div id="recipeCarousel" class="carousel slide w-100" data-ride="carousel">
-                        <div class="carousel-inner w-100" role="listbox">
-                            <div class="carousel-item active">
-                                <div class="col-md-4">
-                                    <div class="card card-body">
-                                        <img class="img-fluid" src="http://placehold.it/380?text=1" alt=""/>
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="card card-body">
-                                        <img class="img-fluid" src="http://placehold.it/380?text=2" alt=""/>
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="card card-body">
-                                        <img class="img-fluid" src="http://placehold.it/380?text=3" alt=""/>
-                                    </div>
+            <div id="carouselExampleControls" class="carousel slide p-5" data-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="card-deck">
+                            <div class="card">
+                                <img class="card-img-top" src="http://st.ourhtmldemo.com/template/organic_store/images/team/1.jpg" alt="Card image cap"/>
+                                <div class="card-body p-3">
+                                    <h5 class="card-title">Rebecca Garzany</h5>
+                                    <p class="card-text text-warning">Pastoral Farmer</p>
+                                    <p class="card-text"><small class="text-muted">Praising pain was born and I will give you a complete account of the system.</small></p>
                                 </div>
                             </div>
-                            <div class="carousel-item">
-                                <div class="col-md-4">
-                                    <div class="card card-body">
-                                        <img class="img-fluid" src="http://placehold.it/380?text=2" alt=""/>
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="card card-body">
-                                        <img class="img-fluid" src="http://placehold.it/380?text=3" alt=""/>
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="card card-body">
-                                        <img class="img-fluid" src="http://placehold.it/380?text=1" alt=""/>
-                                    </div>
-                                </div>
+                            <div class="card">
+                            <img class="card-img-top" src="http://st.ourhtmldemo.com/template/organic_store/images/team/2.jpg" alt="Card image cap"/>
+                            <div class="card-body p-3">
+                                <h5 class="card-title">George William</h5>
+                                <p class="card-text text-warning">Arable Farmer</p>
+                                <p class="card-text"><small class="text-muted">Praising pain was born and I will give you a complete account of the system.</small></p>
                             </div>
-                            <div class="carousel-item">
-                                <div class="col-md-4">
-                                    <div class="card card-body">
-                                        <img class="img-fluid" src="http://placehold.it/380?text=3" alt=""/>
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="card card-body">
-                                        <img class="img-fluid" src="http://placehold.it/380?text=1" alt=""/>
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="card card-body">
-                                        <img class="img-fluid" src="http://placehold.it/380?text=2" alt=""/>
-                                    </div>
-                                </div>
+                            </div>
+                            <div class="card">
+                            <img class="card-img-top" src="http://st.ourhtmldemo.com/template/organic_store/images/team/3.jpg" alt="Card image cap"/>
+                            <div class="card-body p-3">
+                                <h5 class="card-title">Giana Fernando</h5>
+                                <p class="card-text text-warning">Farm Manager</p>
+                                <p class="card-text"><small class="text-muted">Praising pain was born and I will give you a complete account of the system.</small></p>
+                            </div>
                             </div>
                         </div>
-                        <a class="carousel-control-prev w-auto" href="#recipeCarousel" role="button" data-slide="prev">
-                            <span class="carousel-control-prev-icon bg-dark border border-dark rounded-circle" aria-hidden="true"></span>
-                            <span class="sr-only">Previous</span>
-                        </a>
-                        <a class="carousel-control-next w-auto" href="#recipeCarousel" role="button" data-slide="next">
-                            <span class="carousel-control-next-icon bg-dark border border-dark rounded-circle" aria-hidden="true"></span>
-                            <span class="sr-only">Next</span>
-                        </a>
+                    </div>
+                    <div class="carousel-item">
+                    <div class="card-deck">
+                            <div class="card">
+                                <img class="card-img-top" src="http://st.ourhtmldemo.com/template/organic_store/images/team/2.jpg" alt="Card image cap"/>
+                                <div class="card-body p-3">
+                                    <h5 class="card-title">George William</h5>
+                                    <p class="card-text text-warning">Arable Farmer</p>
+                                    <p class="card-text"><small class="text-muted">Praising pain was born and I will give you a complete account of the system.</small></p>
+                                </div>
+                            </div>
+                            <div class="card">
+                            <img class="card-img-top" src="http://st.ourhtmldemo.com/template/organic_store/images/team/3.jpg" alt="Card image cap"/>
+                            <div class="card-body p-3">
+                                <h5 class="card-title">Giana Fernando</h5>
+                                <p class="card-text text-warning">Farm Manager</p>
+                                <p class="card-text"><small class="text-muted">Praising pain was born and I will give you a complete account of the system.</small></p>
+                            </div>
+                            </div>
+                            <div class="card">
+                            <img class="card-img-top" src="http://st.ourhtmldemo.com/template/organic_store/images/team/1.jpg" alt="Card image cap"/>
+                            <div class="card-body p-3">
+                                <h5 class="card-title">Rebecca Garzany</h5>
+                                <p class="card-text text-warning">Pastoral Farmer</p>
+                                <p class="card-text"><small class="text-muted">Praising pain was born and I will give you a complete account of the system.</small></p>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                    <div class="card-deck">
+                            <div class="card">
+                                <img class="card-img-top" src="http://st.ourhtmldemo.com/template/organic_store/images/team/3.jpg" alt="Card image cap"/>
+                                <div class="card-body p-3">
+                                    <h5 class="card-title">Giana Fernando</h5>
+                                    <p class="card-text text-warning">Farm Manager</p>
+                                    <p class="card-text"><small class="text-muted">Praising pain was born and I will give you a complete account of the system.</small></p>
+                                </div>
+                            </div>
+                            <div class="card">
+                            <img class="card-img-top" src="http://st.ourhtmldemo.com/template/organic_store/images/team/1.jpg" alt="Card image cap"/>
+                            <div class="card-body p-3">
+                                <h5 class="card-title">Rebecca Garzany</h5>
+                                <p class="card-text text-warning">Pastoral Farmer</p>
+                                <p class="card-text"><small class="text-muted">Praising pain was born and I will give you a>complete account of the system.</small></p>
+                            </div>
+                            </div>
+                            <div class="card">
+                            <img class="card-img-top" src="http://st.ourhtmldemo.com/template/organic_store/images/team/2.jpg" alt="Card image cap"/>
+                            <div class="card-body p-3">
+                                <h5 class="card-title">George William</h5>
+                                <p class="card-text text-warning">Arable Farmer</p>
+                                <p class="card-text"><small class="text-muted">Praising pain was born and I will give you a complete account of the system.</small></p>
+                            </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
