@@ -64,7 +64,7 @@ const Login = () => {
                 <div className="pt-5">
                     <Link to="/home"><img src="http://st.ourhtmldemo.com/template/organic_store/images/logo/logo.png" style={{ width: 200 }} className="d-inline-block align-top" alt="" /></Link>
                 </div>
-                <div className="p-5 col-md-6 mx-auto">
+                <div className="p-md-5 pb-3 col-md-6 mx-auto">
                     <form onSubmit={handleSubmit(onSubmit)}>
 
                         {newUser && <input name="name" className="form-control bg-light" defaultValue="" ref={register({ required: true })} placeholder="Name" />}
@@ -93,10 +93,10 @@ const Login = () => {
                     </form>
                     <div className="">
                         <h6>or <hr /></h6>
-                        <div className="border rounded p-1 pl-5 pr-5 ">
+                        <div className="border rounded p-1 pl-md-5 pr-md-5 ">
                             <button onClick={googleSingIn} className="btn font-weight-bold text-dark"><span><img src="https://iili.io/2xw5TQ.png" alt="" className="m-1" style={{ width: 16 }} /></span>Continue with Google</button>
                         </div>
-                        <div className="border rounded p-1 pl-5 pr-5 ">
+                        <div className="border rounded p-1 pl-md-5 pr-md-5 ">
                             <button onClick={googleSingIn} className="btn font-weight-bold text-dark"><span><FontAwesomeIcon icon={faFacebook} className="fbIcon mr-2"></FontAwesomeIcon></span>Continue with Facebook</button>
                         </div>
                     </div>
