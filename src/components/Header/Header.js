@@ -1,14 +1,17 @@
-import React from 'react';
+import React, { useContext, useState } from 'react';
 import './Header.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faSearch, faShoppingBag, faUserCircle } from '@fortawesome/free-solid-svg-icons';
-import { Container, Nav, Navbar, NavDropdown } from 'react-bootstrap';
+import { Nav, Navbar } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import { Button } from 'bootstrap';
 import { faFacebook, faGooglePlus, faPinterest, faTwitter } from '@fortawesome/free-brands-svg-icons';
+import { UserContext } from '../../App';
 
 
 const Header = () => {
+
+    const [loggedInUser, setLoggedInUser] = useContext(UserContext);
+    const [cart, setCart] = useState([]);
     return (
         <div>
             <div>
@@ -28,12 +31,19 @@ const Header = () => {
                     </div>
                     <div className="col-md-4 col-sm-7 col-xs-6 pdt-14 w-100 d-flex">
                         <div class="login_option float_left d-flex p-2 mr-3 ml-3">
-                            <div class="w-100 p-2">
+                            <div class="p-2">
                                 <FontAwesomeIcon className="iconBg" style={{height:45, width:45}} icon={faUserCircle}></FontAwesomeIcon>
                             </div>
                             <div class="login-info p-1">
                                 <div class="welcome">Welcome!</div>
-                                <Link to="/" className="btn iconBg font-weight-bold">Login</Link>
+                                <div>
+                                {
+                                    loggedInUser.isSiggnedIn
+                                    ?
+                                    <Link to="/" className=""><small className="textHighlight">{loggedInUser.name}</small></Link>
+                                    :<Link to="/login" className="btn iconBg font-weight-bold">Login</Link>
+                                }
+                                </div>
                             </div>
                         </div>
                         <div className="p-3">
@@ -55,9 +65,12 @@ const Header = () => {
                             <Link to="/aboutUs" className="text-light font-weight-bold m-2 ml-3">ABOUT US</Link>
                             <Link to="/store" className="text-light font-weight-bold m-2 ml-3">STORE</Link>
                             <Link to="/news" className="text-light font-weight-bold m-2 ml-3">NEWS</Link>
-                            <Link to="/gallery" className="text-light font-weight-bold m-2 ml-3">GALLERY</Link>
+                            <Link to="/myOrders" className="text-light font-weight-bold m-2 ml-3">MY ORDERS</Link>
                             <Link to="/faq" className="text-light font-weight-bold m-2 ml-3">FAQ</Link>
                             <Link to="/contactUs" className="text-light font-weight-bold m-2 ml-3">CONTACT US</Link>
+                            {
+                                loggedInUser.isSiggnedIn && <Link to="/login" onClick={() => setLoggedInUser({})} className="text-light font-weight-bold m-2 ml-3">LOGOUT</Link>
+                            }
                         </Nav>
                     </Navbar.Collapse>
                 </Navbar>
