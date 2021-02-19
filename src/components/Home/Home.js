@@ -1,5 +1,6 @@
 import React from 'react';
 import HomeBanner from './HomeBanner/HomeBanner';
+import HomeBrandSlider from './HomeBrandSlider/HomeBrandSlider';
 import HomeSlider from './HomeSlider/HomeSlider';
 import OurFarmers from './OurFarmers/OurFarmers';
 import Testimonials from './Testimonials/Testimonials';
@@ -13,6 +14,7 @@ const home = () => {
             <WhyToChooseUs />
             <OurFarmers />
             <Testimonials />
+            <HomeBrandSlider />
         </div>
     );
 };

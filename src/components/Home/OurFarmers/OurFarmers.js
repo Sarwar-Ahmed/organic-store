@@ -11,11 +11,11 @@ const OurFarmers = () => {
                     </div> 
                 </div>
             </div>
-            <div id="carouselExampleControls" class="carousel slide p-5" data-ride="carousel">
+            <div id="carouselExampleControls" class="carousel slide p-md-5" data-ride="carousel">
                 <div class="carousel-inner">
                     <div class="carousel-item active">
                         <div class="card-deck">
-                            <div class="card">
+                            <div class="card ourFarmerCard">
                                 <img class="card-img-top" src="http://st.ourhtmldemo.com/template/organic_store/images/team/1.jpg" alt="Card image cap"/>
                                 <div class="card-body p-3">
                                     <h5 class="card-title">Rebecca Garzany</h5>
@@ -23,7 +23,7 @@ const OurFarmers = () => {
                                     <p class="card-text"><small class="text-muted">Praising pain was born and I will give you a complete account of the system.</small></p>
                                 </div>
                             </div>
-                            <div class="card">
+                            <div class="card ourFarmerCard">
                             <img class="card-img-top" src="http://st.ourhtmldemo.com/template/organic_store/images/team/2.jpg" alt="Card image cap"/>
                             <div class="card-body p-3">
                                 <h5 class="card-title">George William</h5>
@@ -31,7 +31,7 @@ const OurFarmers = () => {
                                 <p class="card-text"><small class="text-muted">Praising pain was born and I will give you a complete account of the system.</small></p>
                             </div>
                             </div>
-                            <div class="card">
+                            <div class="card ourFarmerCard">
                             <img class="card-img-top" src="http://st.ourhtmldemo.com/template/organic_store/images/team/3.jpg" alt="Card image cap"/>
                             <div class="card-body p-3">
                                 <h5 class="card-title">Giana Fernando</h5>
@@ -43,7 +43,7 @@ const OurFarmers = () => {
                     </div>
                     <div class="carousel-item">
                     <div class="card-deck">
-                            <div class="card">
+                            <div class="card ourFarmerCard">
                                 <img class="card-img-top" src="http://st.ourhtmldemo.com/template/organic_store/images/team/2.jpg" alt="Card image cap"/>
                                 <div class="card-body p-3">
                                     <h5 class="card-title">George William</h5>
@@ -51,7 +51,7 @@ const OurFarmers = () => {
                                     <p class="card-text"><small class="text-muted">Praising pain was born and I will give you a complete account of the system.</small></p>
                                 </div>
                             </div>
-                            <div class="card">
+                            <div class="card ourFarmerCard">
                             <img class="card-img-top" src="http://st.ourhtmldemo.com/template/organic_store/images/team/3.jpg" alt="Card image cap"/>
                             <div class="card-body p-3">
                                 <h5 class="card-title">Giana Fernando</h5>
@@ -59,7 +59,7 @@ const OurFarmers = () => {
                                 <p class="card-text"><small class="text-muted">Praising pain was born and I will give you a complete account of the system.</small></p>
                             </div>
                             </div>
-                            <div class="card">
+                            <div class="card ourFarmerCard">
                             <img class="card-img-top" src="http://st.ourhtmldemo.com/template/organic_store/images/team/1.jpg" alt="Card image cap"/>
                             <div class="card-body p-3">
                                 <h5 class="card-title">Rebecca Garzany</h5>
@@ -71,7 +71,7 @@ const OurFarmers = () => {
                     </div>
                     <div class="carousel-item">
                     <div class="card-deck">
-                            <div class="card">
+                            <div class="card ourFarmerCard">
                                 <img class="card-img-top" src="http://st.ourhtmldemo.com/template/organic_store/images/team/3.jpg" alt="Card image cap"/>
                                 <div class="card-body p-3">
                                     <h5 class="card-title">Giana Fernando</h5>
@@ -79,7 +79,7 @@ const OurFarmers = () => {
                                     <p class="card-text"><small class="text-muted">Praising pain was born and I will give you a complete account of the system.</small></p>
                                 </div>
                             </div>
-                            <div class="card">
+                            <div class="card ourFarmerCard">
                             <img class="card-img-top" src="http://st.ourhtmldemo.com/template/organic_store/images/team/1.jpg" alt="Card image cap"/>
                             <div class="card-body p-3">
                                 <h5 class="card-title">Rebecca Garzany</h5>
@@ -87,7 +87,7 @@ const OurFarmers = () => {
                                 <p class="card-text"><small class="text-muted">Praising pain was born and I will give you a>complete account of the system.</small></p>
                             </div>
                             </div>
-                            <div class="card">
+                            <div class="card ourFarmerCard">
                             <img class="card-img-top" src="http://st.ourhtmldemo.com/template/organic_store/images/team/2.jpg" alt="Card image cap"/>
                             <div class="card-body p-3">
                                 <h5 class="card-title">George William</h5>

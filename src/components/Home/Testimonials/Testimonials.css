@@ -1,0 +1,10 @@
+.testimonialsBg{
+    background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url("http://st.ourhtmldemo.com/template/organic_store/images/home/slide-1.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+}
+.testimonialsCard{
+    background-color: #7FB401;
+}
