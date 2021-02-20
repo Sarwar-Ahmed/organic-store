@@ -1,4 +1,4 @@
-const Products = [
+const fakeProducts = [
     {
         "category": "dairy",
         "title": "Full Cream Milk Powder",
@@ -980,4 +980,4 @@ const Products = [
 
 
 ]
-export default Products;
+export default fakeProducts;

@@ -1,4 +1,4 @@
-const Products = [
+const fakeCategories = [
     {
         "category": "DAIRY",
         "image": "https://www.khaasfood.com/wp-content/uploads/2020/11/dairy.png"
@@ -36,4 +36,4 @@ const Products = [
         "image": "https://www.khaasfood.com/wp-content/uploads/2020/11/snacks.png"
     }
 ]
-export default Products;
+export default fakeCategories;
