@@ -1,0 +1,23 @@
+.navLink{
+    color: #ffffff;
+    font-weight: bold;
+}
+.navLink:hover{
+    color: #7FB401;
+    border-bottom: 1px solid #7FB401;
+}
+.active{
+    color: #7FB401;
+    border-bottom: 1px solid #7FB401;
+}
+.items:hover{
+    border-radius: 20px;
+    box-shadow: 10px 10px 20px lightgray;
+}
+.storeBg{
+    background-image: url('http://st.ourhtmldemo.com/template/organic_store/images/background/404.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+}

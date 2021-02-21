@@ -23,7 +23,7 @@ const ProductCategories = () => {
                 <div className="row p-md-5 text-center">
                     {
                         categories.map(category => 
-                            <div className="col-md-2 col-6">
+                            <div className="col-md-2 col-6" key={category._id}>
                                 <div className="categoryImg m-1">
                                     <Link to={`/store/${category.category}`}>
                                         <div className="">
