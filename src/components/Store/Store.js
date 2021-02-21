@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { Container, Nav } from 'react-bootstrap';
-import { Link, useHistory } from 'react-router-dom';
+import { Link, useHistory, useParams } from 'react-router-dom';
 import { UserContext } from '../../App';
 import fakeProducts from '../../fakeData/fakeProducts';
 import './Store.css'
@@ -18,11 +18,12 @@ const Store = () => {
     //     })
 
     // }
+    const {clickedCategory} = useParams();
 
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
     const [allProducts, setAllProducts] = useState([]);
     const [categories, setCategories] = useState([]);
-    const [defaultCategory, setDefaultCategory] = useState([]);
+    const [selectedProductsHome, setSelectedProductsHome] = useState([]);
     const [cart, setCart] = useState([]);
 
     useEffect(() => {
@@ -39,11 +40,11 @@ const Store = () => {
             // console.log("products added")
         })
 
-        // fetch(`http://localhost:5000/products`)
-        // .then(res => res.json())
-        // .then(data => {
-        //     setDefaultCategory(data.filter(item => item.category === "grocery"));
-        // })
+        fetch(`http://localhost:5000/products`)
+        .then(res => res.json())
+        .then(data => {
+            setSelectedProductsHome(data.filter(item => item.category === clickedCategory));
+        })
 
         // fetch(`https://red-onion-restaurant-sarwar.herokuapp.com/cart`)
         // .then(res => res.json())
@@ -52,8 +53,10 @@ const Store = () => {
         // })
     }, [])
 
-    const [products, setProducts] = useState(allProducts.filter(item => item.category === "grocery"));
-    const [isClicked, setIsClicked] = useState({});  
+    // console.log(allProducts.length);
+
+    const [products, setProducts] = useState([]);
+    const [isClicked, setIsClicked] = useState(clickedCategory);  
     const history = useHistory();
 
     const handleProductsCategory = (cat) =>{
@@ -65,45 +68,75 @@ const Store = () => {
     const handleCheckout = () =>{
         history.push(`/placeOrder`)
     }
-    // console.log(isClicked);
+    // console.log(products.length);
     return (
         <div className="text-center">
             <div>
-                <div class="storeBg text-center text-light p-5">
-                    <div className="delivery_title">
-                        <h2>CATEGORIES</h2>
+                <div class="storeBg text-center text-light">
+                    <div className="pt-md-5">
+                        <h2 className="delivery_title">CATEGORIES</h2>
                     </div>
                     <Nav className="justify-content-center font-weight-bold p-5" activeKey="/home">
                         <Nav.Item>
                             {
                                 categories.map( category =>
-                                    <Link className={isClicked===`"${category.category}"` ? "active mr-3 ml-3" : "navLink mr-3 ml-3"} to="/store" onClick={() => {handleProductsCategory(`${category.category}`)}} key={category._id}>{category.category}</Link>
+                                    <Link className={isClicked===`${category.category}` ? "active mr-3 ml-3" : "navLink mr-3 ml-3"} to={`/store/${category.category}`} onClick={() => {handleProductsCategory(`${category.category}`)}} key={category._id}>{category.category}</Link>
                                 )
                             }
                         </Nav.Item>
                     </Nav>
                 </div>
-                <div className="row p-5">
+                {
+                        selectedProductsHome.length===0 && <h3 className="delivery_title mt-5">All Products</h3>
+                    }
+                <div className="row p-5 m-md-5">
                     {
                         products.length===0
+                        ?
+                        selectedProductsHome.length===0
                         ?allProducts.map(item => 
-                            <div className="col-md-3 col-6 p-3 items" key={item._id}>
-                                <Link to={`/itemDetails/${item._id}`}>
-                                    <img src={item.image} className="w-50" alt=""/>
-                                    <h5 className="text-dark">{item.title}</h5>
-                                    <p className="text-muted">{item.info}</p>
-                                    <h4 className="text-dark">৳{item.price}</h4>
-                                </Link>
+                            <div className="col-md-3 col-6" key={item._id}>
+                                <div className="items bg-light p-2 pt-5 m-1">
+                                    <Link to={`/productsDetails/${item._id}`}>
+                                        <img src={item.image} className="w-50 rounded-circle" alt=""/>
+                                        <h5 className="text-dark">{item.title}</h5>
+                                        <p className="text-muted">{item.info}</p>
+                                        <div className="d-flex p-md-2">
+                                            <h5 className="text-dark mr-auto">৳{item.price}</h5>
+                                            <Link className="p-1 btn-success rounded">View</Link>
+                                        </div>
+                                    </Link>
+                                </div>
+                            </div>    
+                        )
+                        :selectedProductsHome.map(item => 
+                            <div className="col-md-3 col-6" key={item._id}>
+                                <div className="items bg-light p-2 pt-5 m-1">
+                                    <Link to={`/productsDetails/${item._id}`}>
+                                        <img src={item.image} className="w-50 rounded-circle" alt=""/>
+                                        <h5 className="text-dark">{item.title}</h5>
+                                        <p className="text-muted">{item.info}</p>
+                                        <div className="d-flex p-md-2">
+                                            <h5 className="text-dark mr-auto">৳{item.price}</h5>
+                                            <Link className="p-1 btn-success rounded">View</Link>
+                                        </div>
+                                    </Link>
+                                </div>
                             </div>    
                         )
                         :products.map(item => 
-                            <div className="col-md-3 col-6 p-3 items" key={item._id}>
-                                <Link to={`/itemDetails/${item._id}`}>
-                                    <img src={item.image} className="w-50" alt=""/>
-                                    <h5 className="text-dark">{item.title}</h5>
-                                    <p className="text-muted">{item.info}</p>
-                                    <h4 className="text-dark">৳{item.price}</h4>
-                                </Link>
+                            <div className="col-md-3 col-6" key={item._id}>
+                                <div className="items bg-light p-2 pt-5 m-1">
+                                    <Link to={`/productsDetails/${item._id}`}>
+                                        <img src={item.image} className="w-50 rounded-circle" alt=""/>
+                                        <h5 className="text-dark">{item.title}</h5>
+                                        <p className="text-muted">{item.info}</p>
+                                        <div className="d-flex p-md-2">
+                                            <h5 className="text-dark mr-auto">৳{item.price}</h5>
+                                            <Link className="p-1 btn-success rounded">View</Link>
+                                        </div>
+                                    </Link>
+                                </div>
                             </div>    
                         )
                     }

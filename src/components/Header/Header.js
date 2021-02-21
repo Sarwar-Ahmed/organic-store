@@ -63,7 +63,7 @@ const Header = () => {
                         <Nav className="mr-auto">
                             <Link to="/home" className="text-light font-weight-bold m-2 ml-3">HOME</Link>
                             <Link to="/aboutUs" className="text-light font-weight-bold m-2 ml-3">ABOUT US</Link>
-                            <Link to="/store" className="text-light font-weight-bold m-2 ml-3">STORE</Link>
+                            <Link to="/store/:clickedCategory" className="text-light font-weight-bold m-2 ml-3">STORE</Link>
                             <Link to="/news" className="text-light font-weight-bold m-2 ml-3">NEWS</Link>
                             <Link to="/myOrders" className="text-light font-weight-bold m-2 ml-3">MY ORDERS</Link>
                             <Link to="/faq" className="text-light font-weight-bold m-2 ml-3">FAQ</Link>

@@ -17,6 +17,7 @@ import Store from "./components/Store/Store";
 import MyOrders from "./components/MyOrders/MyOrders";
 import Login from "./components/Login/Login";
 import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
+import ProductsDetails from "./components/ProductsDetails/ProductsDetails";
 
 export const UserContext = createContext();
 function App() {
@@ -50,8 +51,11 @@ function App() {
             <Route path="/faq">
               <Faq />
             </Route>
-            <Route path="/store">
+            <Route path="/store/:clickedCategory">
               <Store />
+            </Route>
+            <Route path="/ProductsDetails/:id">
+              <ProductsDetails />
             </Route>
             <PrivateRoute path="/cart">
               <Cart />
