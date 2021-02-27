@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import './Header.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faSearch, faShoppingBag, faUserCircle } from '@fortawesome/free-solid-svg-icons';
@@ -12,6 +12,20 @@ const Header = () => {
 
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
     const [cart, setCart] = useState([]);
+
+    useEffect(() => {
+        fetch('http://localhost:5000/cart?email='+loggedInUser.email, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                authorization: `Bearer ${sessionStorage.getItem('token')}`
+            }
+        })
+        .then(res => res.json())
+        .then(data => {
+            setCart(data);
+        })
+    }, [])
     return (
         <div>
             <div>
@@ -26,7 +40,7 @@ const Header = () => {
                     </div>
                     <div class="col-md-4 col-sm-5 col-xs-6 logo-responsive">
                         <div class="logo-area">
-                            <a href="/" class="pull-left logo"><img src="http://st.ourhtmldemo.com/template/organic_store/images/logo/logo.png" alt="LOGO" className="img-fluid"/></a>
+                            <Link to="/" class="pull-left logo"><img src="http://st.ourhtmldemo.com/template/organic_store/images/logo/logo.png" alt="LOGO" className="img-fluid"/></Link>
                         </div>
                     </div>
                     <div className="col-md-4 col-sm-7 col-xs-6 pdt-14 w-100 d-flex">
@@ -49,7 +63,7 @@ const Header = () => {
                         <div className="p-3">
                             <Link to="/cart">
                                 <FontAwesomeIcon className="iconBg" icon={faShoppingBag} style={{height:32, width:32}}></FontAwesomeIcon>
-                                <span className="font-weight-bold text-danger cartN p-1">2</span>
+                                <span className="font-weight-bold text-danger cartN p-1">{cart.length}</span>
                             </Link>
                         </div>
                         
@@ -64,7 +78,6 @@ const Header = () => {
                             <Link to="/home" className="text-light font-weight-bold m-2 ml-3">HOME</Link>
                             <Link to="/aboutUs" className="text-light font-weight-bold m-2 ml-3">ABOUT US</Link>
                             <Link to="/store/:clickedCategory" className="text-light font-weight-bold m-2 ml-3">STORE</Link>
-                            <Link to="/news" className="text-light font-weight-bold m-2 ml-3">NEWS</Link>
                             <Link to="/myOrders" className="text-light font-weight-bold m-2 ml-3">MY ORDERS</Link>
                             <Link to="/faq" className="text-light font-weight-bold m-2 ml-3">FAQ</Link>
                             <Link to="/contactUs" className="text-light font-weight-bold m-2 ml-3">CONTACT US</Link>

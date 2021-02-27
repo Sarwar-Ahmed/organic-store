@@ -1,4 +1,5 @@
 import React from 'react';
+import Header from '../Header/Header';
 import Award from './Award/Award';
 import DeliveryProcess from './DeliveryProcess/DeliveryProcess';
 import StoryAboutUs from './StoryAboutUs/StoryAboutUs';
@@ -6,6 +7,7 @@ import StoryAboutUs from './StoryAboutUs/StoryAboutUs';
 const AboutUs = () => {
     return (
         <div>
+            <Header />
             <div class="customBg text-center text-light p-5">
                 <div className="p-5 m-5">
                     <h2>ABOUTUS US</h2>

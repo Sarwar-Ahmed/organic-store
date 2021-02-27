@@ -12,7 +12,6 @@ import AboutUs from "./components/AboutUs/AboutUs";
 import ContactUs from "./components/ContactUs/ContactUs";
 import Cart from "./components/Cart/Cart";
 import Faq from "./components/Faq/Faq";
-import News from "./components/News/News";
 import Store from "./components/Store/Store";
 import MyOrders from "./components/MyOrders/MyOrders";
 import Login from "./components/Login/Login";
@@ -28,7 +27,6 @@ function App() {
     <div>
       <UserContext.Provider value={[loggedInUser, setLoggedInUser]}>
         <Router>
-          <Header />
           <Switch>
             <Route exact path="/">
               <Home />
@@ -45,18 +43,15 @@ function App() {
             <PrivateRoute path="/myOrders">
               <MyOrders />
             </PrivateRoute>
-            <Route path="/news">
-              <News />
-            </Route>
             <Route path="/faq">
               <Faq />
             </Route>
             <Route path="/store/:clickedCategory">
               <Store />
             </Route>
-            <Route path="/ProductsDetails/:id">
+            <PrivateRoute path="/ProductsDetails/:id">
               <ProductsDetails />
-            </Route>
+            </PrivateRoute>
             <PrivateRoute path="/cart">
               <Cart />
             </PrivateRoute>

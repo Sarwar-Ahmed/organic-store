@@ -3,6 +3,7 @@ import { Container, Nav } from 'react-bootstrap';
 import { Link, useHistory, useParams } from 'react-router-dom';
 import { UserContext } from '../../App';
 import fakeProducts from '../../fakeData/fakeProducts';
+import Header from '../Header/Header';
 import './Store.css'
 
 
@@ -71,6 +72,7 @@ const Store = () => {
     // console.log(products.length);
     return (
         <div className="text-center">
+            <Header />
             <div>
                 <div class="storeBg text-center text-light">
                     <div className="pt-md-5">
@@ -87,7 +89,8 @@ const Store = () => {
                     </Nav>
                 </div>
                 {
-                        selectedProductsHome.length===0 && <h3 className="delivery_title mt-5">All Products</h3>
+                        products.length===0
+                        && selectedProductsHome.length===0 && <h3 className="delivery_title mt-5">All Products</h3>
                     }
                 <div className="row p-5 m-md-5">
                     {
@@ -100,7 +103,6 @@ const Store = () => {
                                     <Link to={`/productsDetails/${item._id}`}>
                                         <img src={item.image} className="w-50 rounded-circle" alt=""/>
                                         <h5 className="text-dark">{item.title}</h5>
-                                        <p className="text-muted">{item.info}</p>
                                         <div className="d-flex p-md-2">
                                             <h5 className="text-dark mr-auto">৳{item.price}</h5>
                                             <Link className="p-1 btn-success rounded">View</Link>

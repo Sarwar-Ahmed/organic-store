@@ -1,4 +1,5 @@
 import React from 'react';
+import Header from '../Header/Header';
 import HomeBanner from './HomeBanner/HomeBanner';
 import HomeBrandSlider from './HomeBrandSlider/HomeBrandSlider';
 import HomeSlider from './HomeSlider/HomeSlider';
@@ -10,6 +11,7 @@ import WhyToChooseUs from './WhyToChooseUs/WhyToChooseUs';
 const home = () => {
     return (
         <div>
+            <Header />
             <HomeSlider />
             <HomeBanner />
             <ProductCategories />

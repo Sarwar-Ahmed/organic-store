@@ -3,11 +3,13 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
 import { Accordion, Card } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import Header from '../Header/Header';
 import './faq.css'
 
 const Faq = () => {
     return (
         <div>
+            <Header />
             <div class="customBg text-center text-light p-5">
                 <div className="p-5 m-5">
                     <h2>FAQ'S</h2>
