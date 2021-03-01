@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import './Login.css'
-import { useForm } from 'react-hook-form';
 import { Link, useHistory, useLocation } from 'react-router-dom';
 import firebase from "firebase/app";
 import "firebase/auth";
@@ -17,7 +16,11 @@ const Login = () => {
         isSiggnedIn: false,
         name: '',
         email: '',
-        photo: ''
+        photo: '',
+        password: '',
+        confirmPassword: '',
+        error:'',
+        success: ''
     })
 
     let history = useHistory();
@@ -25,7 +28,6 @@ const Login = () => {
     let {from} = location.state || { from: {pathname:"/"}};
 
 
-    const { register, handleSubmit, errors } = useForm();
     const [newUser, setNewUser] = useState(false);
     
 
@@ -33,9 +35,95 @@ const Login = () => {
         firebase.initializeApp(firebaseConfig);
     }
 
-    const onSubmit = (data) => {
-        console.log(data);
+    // Handle Blur function 
+    const handleBlur = (e) => {
+        let isFieldValid = true;
+        if(e.target.name === 'email'){
+          isFieldValid = /\S+@\S+\.\S+/.test(e.target.value);
+        }
+        if(e.target.name === 'password' === e.target.value === 'confirmPassword'){
+          const isPasswordValid = e.target.value.length >= 6;
+          const passwordHasNumber = /\d{1}/.test(e.target.value);
+          isFieldValid = isPasswordValid && passwordHasNumber;
+        }
+        if(isFieldValid){
+          const newUserInfo = {...user};
+          newUserInfo[e.target.name] = e.target.value;
+          setUser(newUserInfo);
+        }
     }
+    
+    // Handle submit function 
+    const handleSubmit = (e) => {
+        if(newUser && user.email && user.password){
+            firebase.auth().createUserWithEmailAndPassword(user.email, user.password)
+                .then(res => {
+                  const newUserInfo = {...user};
+                  newUserInfo.isSiggnedIn = true;
+                  newUserInfo.error = '';
+                  newUserInfo.success = true;
+                  updateUserName(user.name);
+                  handleResponse(newUserInfo, true);
+                  
+                })
+                .catch(error => {
+                    // Handle Errors here.
+                    const newUserInfo = {};
+                    newUserInfo.error = error.message;
+                    newUserInfo.success = false;
+                    handleResponse(newUserInfo, false);
+                    // ...
+                });
+              
+        }
+    
+        if(!newUser && user.email && user.password){
+            firebase.auth().signInWithEmailAndPassword(user.email, user.password)
+            .then(res => {
+              const newUserInfo = {...user};
+              newUserInfo.isSiggnedIn = true;
+              newUserInfo.error = '';
+              newUserInfo.success = true;
+              handleResponse(newUserInfo, true);
+            })
+            .catch(error => {
+                // Handle Errors here.
+                const newUserInfo = {};
+                newUserInfo.error = error.message;
+                newUserInfo.success = false;
+                handleResponse(newUserInfo, false);
+                // ...
+            });
+        }
+        e.preventDefault();
+      }
+
+    //   Update UserName function 
+      const updateUserName = name => {
+        const user = firebase.auth().currentUser;
+    
+        user.updateProfile({
+          displayName: name
+        }).then(function() {
+          console.log('user name updated successfully');
+        }).catch(function(error) {
+          console.log(error);
+        });
+      }
+
+    //   Handle response function 
+      const handleResponse = (signedInUser, redirect) =>{
+        setUser(signedInUser);
+        setLoggedInUser(signedInUser);
+        storeAuthToken();
+        if(redirect){
+            history.replace(from);
+        }
+      }
+
+    // const onSubmit = (data) => {
+    //     handleSubmit(data);
+    // }
 
     const googleSingIn = () => {
         const googleProvider = new firebase.auth.GoogleAuthProvider();
@@ -46,7 +134,8 @@ const Login = () => {
                 isSiggnedIn: true,
                 name: displayName,
                 email: email,
-                photo: photoURL
+                photo: photoURL,
+                sucess: true
             }
             setUser(signedInUser);
             setLoggedInUser(signedInUser);
@@ -78,32 +167,36 @@ const Login = () => {
                         <Link to="/home"><img src="http://st.ourhtmldemo.com/template/organic_store/images/logo/logo.png" style={{ width: 200 }} className="d-inline-block align-top" alt="" /></Link>
                     </div>
                     <div className="p-md-5 pb-3 col-md-6 mx-auto">
-                        <form onSubmit={handleSubmit(onSubmit)}>
+                        <form onSubmit={handleSubmit}>
 
-                            {newUser && <input name="name" className="form-control bg-light" defaultValue="" ref={register({ required: true })} placeholder="Name" />}
-                            {errors.name && <span className="error">Name is required</span>}
+                            {newUser && <input name="name" onBlur={handleBlur} className="form-control bg-light" placeholder="Name" required/>}
+                            {newUser && <span className="text-muted">*Name is required</span>}
                             <br />
 
-                            <input name="email" type="email" className="form-control bg-light" defaultValue="" ref={register({ required: true })} placeholder="Email" />
-                            {errors.email && <span className="error">Email is required</span>}
+                            <input name="email" type="email" onBlur={handleBlur} className="form-control bg-light" placeholder="Email" required/>
+                            {newUser && <span className="text-muted">*give proper email address</span>}
                             <br />
 
-                            <input name="password" type="password" className="form-control bg-light" defaultValue="" ref={register({ required: true })} placeholder="Password" />
-                            {errors.password && <span className="error">Password is required</span>}
+                            <input name="password" type="password" onBlur={handleBlur} className="form-control bg-light" placeholder="Password" required/>
+                            {newUser && <span className="text-muted">*Password should have at least 6 letter and 1 number</span>}
                             <br />
 
-                            {newUser && <input name="confirmPassword" type="password" className="form-control bg-light" defaultValue="" ref={register({ required: true })} placeholder="Confirm Password" />}
-                            {errors.confirmPassword && <span className="error">Confirm Password is required</span>}
+                            {newUser && <input name="confirmPassword" type="password" onBlur={handleBlur} className="form-control bg-light" placeholder="Confirm Password" required/>}
+                            {newUser && <span className="text-muted">*Confirm Password should have same as previous given password</span>}
                             <br />
 
-                            {newUser
+                            {/* {newUser
                                 ? <Link type="submit" className="customBtn pl-3 pr-3 p-2 rounded">Sign up</Link>
-                                : <Link type="submit" className="customBtn pl-3 pr-3 p-2 rounded">Sign in</Link>}
+                                : <Link type="submit" className="customBtn pl-3 pr-3 p-2 rounded">Sign in</Link>} */}
+                            <input type="submit" className="customBtn pl-3 pr-3 p-2 rounded" value={newUser ? 'Sign up': 'Sign in'} />
                             <br />
                             {newUser
                                 ? <Link to="/login" onClick={() => setNewUser(!newUser)} className="textHighlight">Already have an account</Link>
                                 : <Link to="/login" onClick={() => setNewUser(!newUser)} className="textHighlight">Create an account</Link>}
                         </form>
+
+                        <p style={{color: 'red'}}>{user.error}</p>
+
                         <div className="">
                             <h6>or <hr /></h6>
                             <div className="border rounded p-1 pl-md-5 pr-md-5 ">

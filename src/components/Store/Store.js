@@ -1,3 +1,5 @@
+import { faTrashAlt } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useContext, useEffect, useState } from 'react';
 import { Container, Nav } from 'react-bootstrap';
 import { Link, useHistory, useParams } from 'react-router-dom';
@@ -25,6 +27,7 @@ const Store = () => {
     const [allProducts, setAllProducts] = useState([]);
     const [categories, setCategories] = useState([]);
     const [selectedProductsHome, setSelectedProductsHome] = useState([]);
+    const [admin, setAdmin] = useState([]);
     const [cart, setCart] = useState([]);
 
     useEffect(() => {
@@ -47,6 +50,13 @@ const Store = () => {
             setSelectedProductsHome(data.filter(item => item.category === clickedCategory));
         })
 
+        fetch( `http://localhost:5000/admin`)
+        .then(res => res.json())
+        .then(data => {
+            const currentAdmin = data.find(data => data.email === loggedInUser.email);
+            setAdmin(currentAdmin);
+        })
+
         // fetch(`https://red-onion-restaurant-sarwar.herokuapp.com/cart`)
         // .then(res => res.json())
         // .then(data => {
@@ -64,6 +74,17 @@ const Store = () => {
         setIsClicked(cat);
         const selectedItems = allProducts.filter(item => item.category === cat);
         setProducts(selectedItems);
+    }
+    const handleDeleteProduct = (id) =>{
+        fetch(`http://localhost:5000/deleteProduct/${id}`, {
+            method: 'DELETE'
+        })
+        .then(res => res.json())
+        .then(result => {
+            console.log('deleted successfully');
+        });
+        alert("Item successfully deleted from the store.");
+        history.push(`/store/:clickedCategory`);
     }
 
     const handleCheckout = () =>{
@@ -105,7 +126,10 @@ const Store = () => {
                                         <h5 className="text-dark">{item.title}</h5>
                                         <div className="d-flex p-md-2">
                                             <h5 className="text-dark mr-auto">৳{item.price}</h5>
-                                            <Link className="p-1 btn-success rounded">View</Link>
+                                            {admin
+                                            ?<Link className="p-1 btn-danger rounded"><FontAwesomeIcon icon={faTrashAlt} onClick={() => handleDeleteProduct(item._id)}></FontAwesomeIcon></Link>
+                                            :<Link className="p-1 btn-success rounded">View</Link>
+                                            }
                                         </div>
                                     </Link>
                                 </div>

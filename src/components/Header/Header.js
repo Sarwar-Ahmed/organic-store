@@ -12,6 +12,7 @@ const Header = () => {
 
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
     const [cart, setCart] = useState([]);
+    const [admin, setAdmin] = useState([]);
 
     useEffect(() => {
         fetch('http://localhost:5000/cart?email='+loggedInUser.email, {
@@ -25,7 +26,15 @@ const Header = () => {
         .then(data => {
             setCart(data);
         })
+
+        fetch( `http://localhost:5000/admin`)
+        .then(res => res.json())
+        .then(data => {
+            const currentAdmin = data.find(data => data.email === loggedInUser.email);
+            setAdmin(currentAdmin);
+        })
     }, [])
+
     return (
         <div>
             <div>
@@ -43,56 +52,87 @@ const Header = () => {
                             <Link to="/" class="pull-left logo"><img src="http://st.ourhtmldemo.com/template/organic_store/images/logo/logo.png" alt="LOGO" className="img-fluid"/></Link>
                         </div>
                     </div>
-                    <div className="col-md-4 col-sm-7 col-xs-6 pdt-14 w-100 d-flex">
-                        <div class="login_option float_left d-flex p-2 mr-3 ml-3">
-                            <div class="p-2">
-                                <FontAwesomeIcon className="iconBg" style={{height:45, width:45}} icon={faUserCircle}></FontAwesomeIcon>
+                    <div className="col-md-4 col-sm-7 col-xs-6 pdt-14 w-100 ">
+                        {
+                            admin
+                            ?<div>
+                                <h1 className="text-danger ml-5">ADMIN PANEL</h1>
                             </div>
-                            <div class="login-info p-1">
-                                <div class="welcome">Welcome!</div>
-                                <div>
-                                {
-                                    loggedInUser.isSiggnedIn
-                                    ?
-                                    <Link to="/" className=""><small className="textHighlight">{loggedInUser.name}</small></Link>
-                                    :<Link to="/login" className="btn iconBg font-weight-bold">Login</Link>
-                                }
+                            :<div className="d-flex">
+                            <div class="login_option float_left d-flex p-2 mr-3 ml-3">
+                                <div class="p-2">
+                                    <FontAwesomeIcon className="iconBg" style={{height:45, width:45}} icon={faUserCircle}></FontAwesomeIcon>
+                                </div>
+                                <div class="login-info p-1">
+                                    <div class="welcome">Welcome!</div>
+                                    <div>
+                                    {
+                                        loggedInUser.isSiggnedIn
+                                        ?
+                                        <Link to="/" className=""><small className="textHighlight">{loggedInUser.name}</small></Link>
+                                        :<Link to="/login" className="btn iconBg font-weight-bold">Login</Link>
+                                    }
+                                    </div>
                                 </div>
                             </div>
+                            <div className="p-3">
+                                <Link to="/cart">
+                                    <FontAwesomeIcon className="iconBg" icon={faShoppingBag} style={{height:32, width:32}}></FontAwesomeIcon>
+                                    <span className="font-weight-bold text-danger cartN p-1">{cart.length}</span>
+                                </Link>
+                            </div>
                         </div>
-                        <div className="p-3">
-                            <Link to="/cart">
-                                <FontAwesomeIcon className="iconBg" icon={faShoppingBag} style={{height:32, width:32}}></FontAwesomeIcon>
-                                <span className="font-weight-bold text-danger cartN p-1">{cart.length}</span>
-                            </Link>
-                        </div>
+                        }
                         
                     </div>
                 </div>
             </div>
             <div className="NavBg d-flex">
-                <Navbar expand="lg" className="mr-auto">
-                    <Navbar.Toggle aria-controls="basic-navbar-nav" />
-                    <Navbar.Collapse id="basic-navbar-nav">
-                        <Nav className="mr-auto">
-                            <Link to="/home" className="text-light font-weight-bold m-2 ml-3">HOME</Link>
-                            <Link to="/aboutUs" className="text-light font-weight-bold m-2 ml-3">ABOUT US</Link>
-                            <Link to="/store/:clickedCategory" className="text-light font-weight-bold m-2 ml-3">STORE</Link>
-                            <Link to="/myOrders" className="text-light font-weight-bold m-2 ml-3">MY ORDERS</Link>
-                            <Link to="/faq" className="text-light font-weight-bold m-2 ml-3">FAQ</Link>
-                            <Link to="/contactUs" className="text-light font-weight-bold m-2 ml-3">CONTACT US</Link>
-                            {
-                                loggedInUser.isSiggnedIn && <Link to="/login" onClick={() => setLoggedInUser({})} className="text-light font-weight-bold m-2 ml-3">LOGOUT</Link>
-                            }
-                        </Nav>
-                    </Navbar.Collapse>
-                </Navbar>
-                <div class="p-1 mr-5 d-flex">
-                    <Link class="p-3"><a href="/"><FontAwesomeIcon className="socialFb" icon={faFacebook} style={{height:32, width:32}}></FontAwesomeIcon></a></Link>
-                    <Link class="p-3"><a href="/"><FontAwesomeIcon className="socialTwt" icon={faTwitter} style={{height:32, width:32}}></FontAwesomeIcon></a></Link>
-                    <Link class="p-3"><a href="/"><FontAwesomeIcon className="socialGp" icon={faGooglePlus} style={{height:32, width:32}}></FontAwesomeIcon></a></Link>
-                    <Link class="p-3"><a href="/"><FontAwesomeIcon className="socialPrt" icon={faPinterest} style={{height:32, width:32}}></FontAwesomeIcon></a></Link>
+                {
+                    admin
+                    ?<Navbar expand="lg" className="mr-auto">
+                        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+                        <Navbar.Collapse id="basic-navbar-nav">
+                            <Nav className="mr-auto">
+                                <Link to="/home" className="text-light font-weight-bold m-2 ml-3">HOME</Link>
+                                <Link to="/aboutUs" className="text-light font-weight-bold m-2 ml-3">ABOUT US</Link>
+                                <Link to="/store/:clickedCategory" className="text-light font-weight-bold m-2 ml-3">MANAGE STORE</Link>
+                                <Link to="/myOrders" className="text-light font-weight-bold m-2 ml-3">ORDERS</Link>
+                                <Link to="/addCategory" className="text-light font-weight-bold m-2 ml-3">ADD CATEGORY</Link>
+                                <Link to="/addProducts" className="text-light font-weight-bold  m-2 ml-3">ADD PRODUCTS</Link>
+                                <Link to="/addAdmin" className="text-light font-weight-bold m-2 ml-3">ADD ADMIN</Link>
+                                <Link to="/contactUs" className="text-light font-weight-bold m-2 ml-3">CONTACT US</Link>
+                                {
+                                    loggedInUser.isSiggnedIn && <Link to="/login" onClick={() => setLoggedInUser({})} className="text-light font-weight-bold m-2 ml-3">LOGOUT</Link>
+                                }
+                            </Nav>
+                        </Navbar.Collapse>
+                    </Navbar>
+                    :<Navbar expand="lg" className="mr-auto">
+                        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+                        <Navbar.Collapse id="basic-navbar-nav">
+                            <Nav className="mr-auto">
+                                <Link to="/home" className="text-light font-weight-bold m-2 ml-3">HOME</Link>
+                                <Link to="/aboutUs" className="text-light font-weight-bold m-2 ml-3">ABOUT US</Link>
+                                <Link to="/store/:clickedCategory" className="text-light font-weight-bold m-2 ml-3">STORE</Link>
+                                <Link to="/myOrders" className="text-light font-weight-bold m-2 ml-3">MY ORDERS</Link>
+                                <Link to="/faq" className="text-light font-weight-bold m-2 ml-3">FAQ</Link>
+                                <Link to="/contactUs" className="text-light font-weight-bold m-2 ml-3">CONTACT US</Link>
+                                {
+                                    loggedInUser.isSiggnedIn && <Link to="/login" onClick={() => setLoggedInUser({})} className="text-light font-weight-bold m-2 ml-3">LOGOUT</Link>
+                                }
+                            </Nav>
+                        </Navbar.Collapse>
+                    </Navbar>
+                }
+                {
+                    !admin && <div class="p-1 mr-5 d-flex">
+                        <Link class="p-3"><a href="/"><FontAwesomeIcon className="socialFb" icon={faFacebook} style={{height:32, width:32}}></FontAwesomeIcon></a></Link>
+                        <Link class="p-3"><a href="/"><FontAwesomeIcon className="socialTwt" icon={faTwitter} style={{height:32, width:32}}></FontAwesomeIcon></a></Link>
+                        <Link class="p-3"><a href="/"><FontAwesomeIcon className="socialGp" icon={faGooglePlus} style={{height:32, width:32}}></FontAwesomeIcon></a></Link>
+                        <Link class="p-3"><a href="/"><FontAwesomeIcon className="socialPrt" icon={faPinterest} style={{height:32, width:32}}></FontAwesomeIcon></a></Link>
                 </div>
+                }
             </div>
             
         </div>

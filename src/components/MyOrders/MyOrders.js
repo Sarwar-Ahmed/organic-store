@@ -7,14 +7,29 @@ import './MyOrders.css'
 const MyOrders = () => {
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
     const [order, setOrder] = useState([]);
+    const [admin, setAdmin] = useState([]);
+    const [adminOrders, setAdminOrders] = useState([]);
     const [isClicked, setIsClicked] = useState(false);
 
     useEffect(() => {
         fetch(`http://localhost:5000/orders`)
-            .then(res => res.json())
-            .then(data => {
-                setOrder(data.filter(item => item.email === loggedInUser.email));
-            })
+        .then(res => res.json())
+        .then(data => {
+            setOrder(data.filter(item => item.email === loggedInUser.email));
+        })
+
+        fetch(`http://localhost:5000/orders`)
+        .then(res => res.json())
+        .then(data => {
+            setAdminOrders(data);
+        })
+
+        fetch( `http://localhost:5000/admin`)
+        .then(res => res.json())
+        .then(data => {
+            const currentAdmin = data.find(data => data.email === loggedInUser.email);
+            setAdmin(currentAdmin);
+        })
     }, [])
     return (
         <div>
@@ -32,14 +47,21 @@ const MyOrders = () => {
                         </thead>
                         <tbody>
                             {
-                                order.map(orderItem =>
+                                admin 
+                                ? adminOrders.map(orderItem =>
                                     <tr key={orderItem._id}>
                                         <td>{orderItem.instructor}</td>
                                         <td>{orderItem.email}</td>
                                         <td>{orderItem._id}</td>
                                         <td>{orderItem.roadNo}, {orderItem.address}</td>
-                                    </tr>
-                                )
+                                    </tr>)
+                                : order.map(orderItem =>
+                                    <tr key={orderItem._id}>
+                                        <td>{orderItem.instructor}</td>
+                                        <td>{orderItem.email}</td>
+                                        <td>{orderItem._id}</td>
+                                        <td>{orderItem.roadNo}, {orderItem.address}</td>
+                                    </tr>)
                             }
                         </tbody>
                     </Table>
