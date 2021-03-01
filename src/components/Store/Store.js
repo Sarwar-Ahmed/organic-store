@@ -127,7 +127,7 @@ const Store = () => {
                                         <div className="d-flex p-md-2">
                                             <h5 className="text-dark mr-auto">৳{item.price}</h5>
                                             {admin
-                                            ?<Link className="p-1 btn-danger rounded"><FontAwesomeIcon icon={faTrashAlt} onClick={() => handleDeleteProduct(item._id)}></FontAwesomeIcon></Link>
+                                            ?<Link className="p-md-1 btn-danger rounded" onClick={() => handleDeleteProduct(item._id)}><FontAwesomeIcon icon={faTrashAlt}></FontAwesomeIcon> Delete</Link>
                                             :<Link className="p-1 btn-success rounded">View</Link>
                                             }
                                         </div>

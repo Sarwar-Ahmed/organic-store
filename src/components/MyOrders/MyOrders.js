@@ -10,6 +10,7 @@ const MyOrders = () => {
     const [admin, setAdmin] = useState([]);
     const [adminOrders, setAdminOrders] = useState([]);
     const [isClicked, setIsClicked] = useState(false);
+    const [saveTotal, setSaveTotal] = useState([]);
 
     useEffect(() => {
         fetch(`http://localhost:5000/orders`)
@@ -30,6 +31,18 @@ const MyOrders = () => {
             const currentAdmin = data.find(data => data.email === loggedInUser.email);
             setAdmin(currentAdmin);
         })
+
+        fetch('http://localhost:5000/cart?email='+loggedInUser.email, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                authorization: `Bearer ${sessionStorage.getItem('token')}`
+            }
+        })
+        .then(res => res.json())
+        .then(data => {
+            setSaveTotal(data.map(item => item.quantity * item.price));
+        })
     }, [])
     return (
         <div>
@@ -41,7 +54,8 @@ const MyOrders = () => {
                             <tr>
                                 <th>Name</th>
                                 <th>Email ID</th>
-                                <th>Product ID</th>
+                                <th>Order ID</th>
+                                <th>Total</th>
                                 <th>Address</th>
                             </tr>
                         </thead>
@@ -53,6 +67,7 @@ const MyOrders = () => {
                                         <td>{orderItem.instructor}</td>
                                         <td>{orderItem.email}</td>
                                         <td>{orderItem._id}</td>
+                                        <td>৳{orderItem.total}</td>
                                         <td>{orderItem.roadNo}, {orderItem.address}</td>
                                     </tr>)
                                 : order.map(orderItem =>
@@ -60,6 +75,7 @@ const MyOrders = () => {
                                         <td>{orderItem.instructor}</td>
                                         <td>{orderItem.email}</td>
                                         <td>{orderItem._id}</td>
+                                        <td>৳{saveTotal.reduce((previousScore, currentScore, index) => previousScore + currentScore, 0)}</td>
                                         <td>{orderItem.roadNo}, {orderItem.address}</td>
                                     </tr>)
                             }

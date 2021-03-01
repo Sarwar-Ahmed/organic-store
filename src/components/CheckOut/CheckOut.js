@@ -50,6 +50,7 @@ const CheckOut = () => {
         orderItems.businessName = data.businessName;
         orderItems.instructor = data.instructor;
         orderItems.email= loggedInUser.email;
+        orderItems.total = total.reduce((previousScore, currentScore, index) => previousScore + currentScore, 0)
         setOrder(orderItems);
     }
     const handlePlaceOrder = () => {

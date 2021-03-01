@@ -97,7 +97,7 @@ const Header = () => {
                                 <Link to="/home" className="text-light font-weight-bold m-2 ml-3">HOME</Link>
                                 <Link to="/aboutUs" className="text-light font-weight-bold m-2 ml-3">ABOUT US</Link>
                                 <Link to="/store/:clickedCategory" className="text-light font-weight-bold m-2 ml-3">MANAGE STORE</Link>
-                                <Link to="/myOrders" className="text-light font-weight-bold m-2 ml-3">ORDERS</Link>
+                                <Link to="/myOrders" className="text-light font-weight-bold m-2 ml-3">ALL ORDERS</Link>
                                 <Link to="/addCategory" className="text-light font-weight-bold m-2 ml-3">ADD CATEGORY</Link>
                                 <Link to="/addProducts" className="text-light font-weight-bold  m-2 ml-3">ADD PRODUCTS</Link>
                                 <Link to="/addAdmin" className="text-light font-weight-bold m-2 ml-3">ADD ADMIN</Link>

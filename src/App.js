@@ -18,6 +18,9 @@ import Login from "./components/Login/Login";
 import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
 import ProductsDetails from "./components/ProductsDetails/ProductsDetails";
 import CheckOut from "./components/CheckOut/CheckOut";
+import AddCategory from "./components/AddCategory/AddCategory";
+import AddProducts from "./components/AddProducts/AddProducts";
+import AddAdmin from "./components/AddAdmin/AddAdmin";
 
 export const UserContext = createContext();
 function App() {
@@ -58,6 +61,15 @@ function App() {
             </PrivateRoute>
             <PrivateRoute path="/checkOut">
               <CheckOut />
+            </PrivateRoute>
+            <PrivateRoute path="/addCategory">
+              <AddCategory />
+            </PrivateRoute>
+            <PrivateRoute path="/addProducts">
+              <AddProducts />
+            </PrivateRoute>
+            <PrivateRoute path="/addAdmin">
+              <AddAdmin />
             </PrivateRoute>
             <Route path="/login">
               <Login />
