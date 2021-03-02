@@ -11,7 +11,7 @@ const ProductCategories = () => {
         .then(data => {
             setCategories(data);
         })
-    },[])
+    },[categories])
     return (
         <div>
             <div class="p-5">
@@ -27,7 +27,10 @@ const ProductCategories = () => {
                                 <div className="categoryImg m-1">
                                     <Link to={`/store/${category.category}`}>
                                         <div className="">
-                                            <img src={category.image} alt="" className="img-fluid"/>
+                                            <img src={category.image} alt="" className="img-fluid rounded-circle"/>
+                                            {
+                                                category.images && <img src={`data:image/png;base64,${category.images.img}`} className="img-fluid rounded-circle" alt="" />
+                                            }
                                         </div>
                                         <h6 className="textHighlight">{category.category}</h6>
                                     </Link>

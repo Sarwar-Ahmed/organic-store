@@ -33,7 +33,7 @@ const Header = () => {
             const currentAdmin = data.find(data => data.email === loggedInUser.email);
             setAdmin(currentAdmin);
         })
-    }, [])
+    }, [cart, admin])
 
     return (
         <div>

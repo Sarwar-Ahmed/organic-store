@@ -62,7 +62,7 @@ const Store = () => {
         // .then(data => {
         //     setCart(data.filter(cartItem => cartItem.email === loggedInUser.email));
         // })
-    }, [])
+    }, [allProducts, categories])
 
     // console.log(allProducts.length);
 
