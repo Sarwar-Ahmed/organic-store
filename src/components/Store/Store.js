@@ -123,6 +123,9 @@ const Store = () => {
                                 <div className="items bg-light p-2 pt-5 m-1">
                                     <Link to={`/productsDetails/${item._id}`}>
                                         <img src={item.image} className="w-50 rounded-circle" alt=""/>
+                                        {
+                                            item.images && <img src={`data:image/png;base64,${item.images.img}`} className="w-50 rounded-circle" alt="" />
+                                        }
                                         <h5 className="text-dark">{item.title}</h5>
                                         <div className="d-flex p-md-2">
                                             <h5 className="text-dark mr-auto">৳{item.price}</h5>
@@ -140,11 +143,17 @@ const Store = () => {
                                 <div className="items bg-light p-2 pt-5 m-1">
                                     <Link to={`/productsDetails/${item._id}`}>
                                         <img src={item.image} className="w-50 rounded-circle" alt=""/>
+                                        {
+                                            item.images && <img src={`data:image/png;base64,${item.images.img}`} className="w-50 rounded-circle" alt="" />
+                                        }
                                         <h5 className="text-dark">{item.title}</h5>
                                         <p className="text-muted">{item.info}</p>
                                         <div className="d-flex p-md-2">
                                             <h5 className="text-dark mr-auto">৳{item.price}</h5>
-                                            <Link className="p-1 btn-success rounded">View</Link>
+                                            {admin
+                                            ?<Link className="p-md-1 btn-danger rounded" onClick={() => handleDeleteProduct(item._id)}><FontAwesomeIcon icon={faTrashAlt}></FontAwesomeIcon> Delete</Link>
+                                            :<Link className="p-1 btn-success rounded">View</Link>
+                                            }
                                         </div>
                                     </Link>
                                 </div>
@@ -155,11 +164,17 @@ const Store = () => {
                                 <div className="items bg-light p-2 pt-5 m-1">
                                     <Link to={`/productsDetails/${item._id}`}>
                                         <img src={item.image} className="w-50 rounded-circle" alt=""/>
+                                        {
+                                            item.images && <img src={`data:image/png;base64,${item.images.img}`} className="w-50 rounded-circle" alt="" />
+                                        }
                                         <h5 className="text-dark">{item.title}</h5>
                                         <p className="text-muted">{item.info}</p>
                                         <div className="d-flex p-md-2">
                                             <h5 className="text-dark mr-auto">৳{item.price}</h5>
-                                            <Link className="p-1 btn-success rounded">View</Link>
+                                            {admin
+                                            ?<Link className="p-md-1 btn-danger rounded" onClick={() => handleDeleteProduct(item._id)}><FontAwesomeIcon icon={faTrashAlt}></FontAwesomeIcon> Delete</Link>
+                                            :<Link className="p-1 btn-success rounded">View</Link>
+                                            }
                                         </div>
                                     </Link>
                                 </div>
