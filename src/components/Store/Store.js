@@ -17,7 +17,6 @@ const Store = () => {
     const [categories, setCategories] = useState([]);
     const [selectedProductsHome, setSelectedProductsHome] = useState([]);
     const [admin, setAdmin] = useState([]);
-    const [cart, setCart] = useState([]);
 
     useEffect(() => {
         fetch(`http://localhost:5000/category`)
@@ -164,11 +163,6 @@ const Store = () => {
                         )
                     }
                 </div>
-                {
-                    cart.length
-                    ?<button  onClick={() => handleCheckout()} className="bg-danger btn text-white rounded pl-5 pr-5 m-5">Checkout Your Food</button>
-                    :<button  onClick={() => handleCheckout()} className="bg-secondary btn text-white rounded pl-5 pr-5 m-5" disabled>Checkout Your Food</button>
-                }
             </div>
         </div>
     );
