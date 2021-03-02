@@ -1,4 +1,3 @@
-import { faApple } from '@fortawesome/free-brands-svg-icons';
 import { faAppleAlt, faCarrot, faGlassCheers, faShippingFast } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';

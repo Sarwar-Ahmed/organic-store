@@ -1,7 +1,6 @@
 import { faCheck, faTimesCircle } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useContext, useEffect, useState } from 'react';
-import { Table } from 'react-bootstrap';
 import { Link, useHistory } from 'react-router-dom';
 import { UserContext } from '../../App';
 import Header from '../Header/Header';

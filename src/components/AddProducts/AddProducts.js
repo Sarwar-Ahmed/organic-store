@@ -1,11 +1,9 @@
-import React, { useContext, useState } from 'react';
+import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useHistory } from 'react-router-dom';
-import { UserContext } from '../../App';
 import Header from '../Header/Header';
 
 const AddProducts = () => {
-    const [loggedInUser, setLoggedInUser] = useContext(UserContext);
     const [file, setFile] = useState(null);
     const { register, handleSubmit, errors } = useForm();
 

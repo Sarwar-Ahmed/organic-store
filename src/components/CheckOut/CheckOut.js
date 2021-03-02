@@ -1,5 +1,3 @@
-import { faMinus, faPlus } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useContext, useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useHistory } from 'react-router-dom';
@@ -50,6 +48,7 @@ const CheckOut = () => {
         orderItems.businessName = data.businessName;
         orderItems.instructor = data.instructor;
         orderItems.email= loggedInUser.email;
+        orderItems.status= "On going";
         orderItems.total = total.reduce((previousScore, currentScore, index) => previousScore + currentScore, 0)
         setOrder(orderItems);
     }

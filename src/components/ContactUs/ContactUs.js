@@ -1,4 +1,4 @@
-import { faAngleRight, faEnvelope, faHome, faPhone } from '@fortawesome/free-solid-svg-icons';
+import { faEnvelope, faHome, faPhone } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import './ContactUs.css'
 import React from 'react';

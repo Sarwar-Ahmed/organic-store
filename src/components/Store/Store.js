@@ -1,26 +1,15 @@
 import { faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useContext, useEffect, useState } from 'react';
-import { Container, Nav } from 'react-bootstrap';
+import { Nav } from 'react-bootstrap';
 import { Link, useHistory, useParams } from 'react-router-dom';
 import { UserContext } from '../../App';
-import fakeProducts from '../../fakeData/fakeProducts';
 import Header from '../Header/Header';
 import './Store.css'
 
 
 const Store = () => {
 
-    // const addProducts = () => {
-    //     fetch(`http://localhost:5000/addProducts`, {
-    //         method: 'POST',
-    //         headers: {
-    //             'Content-Type': 'application/json'
-    //         },
-    //         body: JSON.stringify(fakeProducts)
-    //     })
-
-    // }
     const {clickedCategory} = useParams();
 
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
@@ -57,14 +46,8 @@ const Store = () => {
             setAdmin(currentAdmin);
         })
 
-        // fetch(`https://red-onion-restaurant-sarwar.herokuapp.com/cart`)
-        // .then(res => res.json())
-        // .then(data => {
-        //     setCart(data.filter(cartItem => cartItem.email === loggedInUser.email));
-        // })
     }, [allProducts, categories])
 
-    // console.log(allProducts.length);
 
     const [products, setProducts] = useState([]);
     const [isClicked, setIsClicked] = useState(clickedCategory);  
@@ -90,7 +73,6 @@ const Store = () => {
     const handleCheckout = () =>{
         history.push(`/placeOrder`)
     }
-    // console.log(products.length);
     return (
         <div className="text-center">
             <Header />

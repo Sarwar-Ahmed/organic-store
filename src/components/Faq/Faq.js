@@ -14,7 +14,7 @@ const Faq = () => {
                 <div className="p-5 m-5">
                     <h2>FAQ'S</h2>
                     <h5>WELCOME TO CERTIFIED ONLINE ORGANIC PRODUCTS SUPPLIERS</h5>
-                    <p>We provide <span className="textHightlight">100% organic</span> products</p>
+                    <p>We provide <span className="textHighlight">100% organic</span> products</p>
                 </div>
             </div>
             <div class="p-5">

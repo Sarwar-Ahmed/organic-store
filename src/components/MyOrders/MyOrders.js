@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { Table } from 'react-bootstrap';
+import { Button, ButtonGroup, Dropdown, Table } from 'react-bootstrap';
+import { Link, useHistory } from 'react-router-dom';
 import { UserContext } from '../../App';
 import Header from '../Header/Header';
 import './MyOrders.css'
@@ -11,6 +12,26 @@ const MyOrders = () => {
     const [adminOrders, setAdminOrders] = useState([]);
     const [isClicked, setIsClicked] = useState(false);
     const [saveTotal, setSaveTotal] = useState([]);
+    const [status, setStatus] = useState("Pending");
+
+    const history = useHistory();
+
+
+    const handleStatus = (status, id) => {
+        setStatus(status);
+        fetch(`http://localhost:5000/updateOrders`,{
+            method: 'PATCH',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({status, id})
+        })
+        .then(res => res.json())
+        .then(data => {
+            
+        })
+        alert("Status updated successfully.");
+        history.push(`/myOrders`);
+
+    }
 
     useEffect(() => {
         fetch(`http://localhost:5000/orders`)
@@ -43,7 +64,7 @@ const MyOrders = () => {
         .then(data => {
             setSaveTotal(data.map(item => item.quantity * item.price));
         })
-    }, [])
+    }, [order, adminOrders])
     return (
         <div>
             <Header />
@@ -57,6 +78,7 @@ const MyOrders = () => {
                                 <th>Order ID</th>
                                 <th>Total</th>
                                 <th>Address</th>
+                                <th>Status</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -69,6 +91,19 @@ const MyOrders = () => {
                                         <td>{orderItem._id}</td>
                                         <td>৳{orderItem.total}</td>
                                         <td>{orderItem.roadNo}, {orderItem.address}</td>
+                                        <td>
+                                            <Dropdown as={ButtonGroup}>
+                                                <Button variant="" className={orderItem.status==="Pending"? "text-danger": orderItem.status==="On going"? "text-warning":"text-success"}>{orderItem.status}</Button>
+
+                                                <Dropdown.Toggle split variant="" id="dropdown-split-basic" />
+
+                                                <Dropdown.Menu>
+                                                    <Dropdown.Item href="" onClick={() => {handleStatus("Pending", orderItem._id)}}><Link to="/login" className="text-danger">Pending</Link></Dropdown.Item>
+                                                    <Dropdown.Item href=""  onClick={() => {handleStatus("On going", orderItem._id)}}><Link to="/login" className="text-warning">On going</Link></Dropdown.Item>
+                                                    <Dropdown.Item href=""  onClick={() => {handleStatus("Done", orderItem._id)}}><Link to="/login" className="text-success">Done</Link></Dropdown.Item>
+                                                </Dropdown.Menu>
+                                            </Dropdown>
+                                        </td>
                                     </tr>)
                                 : order.map(orderItem =>
                                     <tr key={orderItem._id}>
@@ -77,6 +112,7 @@ const MyOrders = () => {
                                         <td>{orderItem._id}</td>
                                         <td>৳{saveTotal.reduce((previousScore, currentScore, index) => previousScore + currentScore, 0)}</td>
                                         <td>{orderItem.roadNo}, {orderItem.address}</td>
+                                        <td><button className={orderItem.status==="Pending"?"btn btn-danger ml-auto":orderItem.status==="On going"?"btn btn-warning ml-auto":"btn btn-success ml-auto"}>{orderItem.status}</button></td>
                                     </tr>)
                             }
                         </tbody>

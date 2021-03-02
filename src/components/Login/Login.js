@@ -121,9 +121,6 @@ const Login = () => {
         }
       }
 
-    // const onSubmit = (data) => {
-    //     handleSubmit(data);
-    // }
 
     const googleSingIn = () => {
         const googleProvider = new firebase.auth.GoogleAuthProvider();
@@ -185,9 +182,7 @@ const Login = () => {
                             {newUser && <span className="text-muted">*Confirm Password should have same as previous given password</span>}
                             <br />
 
-                            {/* {newUser
-                                ? <Link type="submit" className="customBtn pl-3 pr-3 p-2 rounded">Sign up</Link>
-                                : <Link type="submit" className="customBtn pl-3 pr-3 p-2 rounded">Sign in</Link>} */}
+                            
                             <input type="submit" className="customBtn pl-3 pr-3 p-2 rounded" value={newUser ? 'Sign up': 'Sign in'} />
                             <br />
                             {newUser

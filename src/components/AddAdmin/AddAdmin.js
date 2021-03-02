@@ -1,13 +1,11 @@
 import { faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { Link, useHistory } from 'react-router-dom';
-import { UserContext } from '../../App';
 import Header from '../Header/Header';
 
 const AddAdmin = () => {
-    const [loggedInUser, setLoggedInUser] = useContext(UserContext);
     const [admin, setAdmin] = useState([]);
     const { register, handleSubmit, errors } = useForm();
 
