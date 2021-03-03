@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Container } from 'react-bootstrap';
 import { useForm } from 'react-hook-form';
 import { useHistory } from 'react-router-dom';
 import Header from '../Header/Header';
@@ -37,7 +38,7 @@ const AddCategory = () => {
     return (
         <div>
             <Header />
-            <div className="col-md-8 mx-auto p-5">
+            <Container fluid className="col-md-8 mx-auto p-5">
                 <h4 className="text-center textHighlight mb-5">Add Category</h4>
                 <form onSubmit={handleSubmit(onSubmit)}>
                     <label className="font-weight-bold textHighlight">Category Title</label><br/>
@@ -52,7 +53,7 @@ const AddCategory = () => {
 
                     <button className="btn btn-success pl-5 pr-5 mt-5" type="submit">Send</button>
                 </form>
-            </div>
+            </Container>
         </div>
     );
 };

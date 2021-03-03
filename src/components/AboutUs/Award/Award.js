@@ -1,9 +1,10 @@
 import React from 'react';
+import { Container } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
 const Award = () => {
     return (
-        <div class="row p-5">
+        <Container fluid className="row p-5">
             <div class="col-md-6 col-sm-12 p-5">
                 <div class="award-info">
                     <div class="theme_title">
@@ -61,7 +62,7 @@ const Award = () => {
 
                 </div>
             </div>
-        </div>
+        </Container>
     );
 };
 

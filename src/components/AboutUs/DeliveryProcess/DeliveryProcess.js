@@ -1,11 +1,12 @@
 import { faClipboardList, faPeopleCarry, faShippingFast, faShoppingBag, faUserCircle } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
+import { Container } from 'react-bootstrap';
 import './DeliverProcess.css'
 
 const DeliveryProcess = () => {
     return (
-        <div class="bg-light text-center p-5">
+        <Container fluid className="bg-light text-center p-5">
             <div class="delivery_title">
                 <h3>Delivery Process</h3>
             </div>
@@ -55,7 +56,7 @@ const DeliveryProcess = () => {
                     </div>
                 </div>
             </div>
-        </div>
+        </Container>
     );
 };
 

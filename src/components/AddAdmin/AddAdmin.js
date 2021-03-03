@@ -1,6 +1,7 @@
 import { faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useEffect, useState } from 'react';
+import { Container } from 'react-bootstrap';
 import { useForm } from 'react-hook-form';
 import { Link, useHistory } from 'react-router-dom';
 import Header from '../Header/Header';
@@ -46,7 +47,7 @@ const AddAdmin = () => {
     return (
         <div>
             <Header />
-            <div className="row p-5"> 
+            <Container fluid className="row p-5"> 
                 <div className="col-md-5">
                     <h3 className="textHighlight pl-4 mb-3">Admin List:</h3>
                     <ol>
@@ -67,7 +68,7 @@ const AddAdmin = () => {
                         <button className="btn btn-success pl-5 pr-5 p-2 mb-1 mt-2" type="submit">Submit</button>
                     </form>
                 </div>
-            </div>
+            </Container>
         </div>
     );
 };

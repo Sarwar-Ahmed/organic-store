@@ -1,11 +1,12 @@
 import { faAppleAlt, faCarrot, faGlassCheers, faShippingFast } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
+import { Container } from 'react-bootstrap';
 import './WhyToChooseUs.css'
 
 const WhyToChooseUs = () => {
     return (
-        <div class="themeTitleBg p-5">
+        <Container fluid className="themeTitleBg p-5">
             <div class="p-5">
                 <div class="text-center">
                     <div class="">
@@ -59,7 +60,7 @@ const WhyToChooseUs = () => {
                     </div>
                 </div>
             </div>
-        </div>
+        </Container>
     );
 };
 

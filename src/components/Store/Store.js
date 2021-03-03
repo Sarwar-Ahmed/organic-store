@@ -1,7 +1,7 @@
 import { faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useContext, useEffect, useState } from 'react';
-import { Nav } from 'react-bootstrap';
+import { Container, Nav } from 'react-bootstrap';
 import { Link, useHistory, useParams } from 'react-router-dom';
 import { UserContext } from '../../App';
 import Header from '../Header/Header';
@@ -80,27 +80,29 @@ const Store = () => {
                     <div className="pt-md-5">
                         <h2 className="delivery_title">CATEGORIES</h2>
                     </div>
-                    <Nav className="justify-content-center font-weight-bold p-5" activeKey="/home">
-                        <Nav.Item>
-                            {
-                                categories.map( category =>
-                                    <Link className={isClicked===`${category.category}` ? "active mr-3 ml-3" : "navLink mr-3 ml-3"} to={`/store/${category.category}`} onClick={() => {handleProductsCategory(`${category.category}`)}} key={category._id}>{category.category}</Link>
-                                )
-                            }
-                        </Nav.Item>
-                    </Nav>
+                    <div>
+                        <Nav className="justify-content-center font-weight-bold p-md-5 p-3" activeKey="/home">
+                            <Nav.Item>
+                                {
+                                    categories.map( category =>
+                                        <Link className={isClicked===`${category.category}` ? "active mr-md-3 ml-md-3 ml-1 mr-1" : "navLink mr-md-3 ml-md-3 ml-1 mr-1"} to={`/store/${category.category}`} onClick={() => {handleProductsCategory(`${category.category}`)}} key={category._id}>{category.category}</Link>
+                                    )
+                                }
+                            </Nav.Item>
+                        </Nav>
+                    </div>
                 </div>
                 {
                         products.length===0
                         && selectedProductsHome.length===0 && <h3 className="delivery_title mt-5">All Products</h3>
                     }
-                <div className="row p-5 m-md-5">
+                <div className="row p-md-5 p-3 m-md-5">
                     {
                         products.length===0
                         ?
                         selectedProductsHome.length===0
                         ?allProducts.map(item => 
-                            <div className="col-md-3 col-6" key={item._id}>
+                            <Container fluid className="col-md-3 col-6" key={item._id}>
                                 <div className="items bg-light p-2 pt-5 m-1">
                                     <Link to={`/productsDetails/${item._id}`}>
                                         <img src={item.image} className="w-50 rounded-circle" alt=""/>
@@ -117,10 +119,10 @@ const Store = () => {
                                         </div>
                                     </Link>
                                 </div>
-                            </div>    
+                            </Container>    
                         )
                         :selectedProductsHome.map(item => 
-                            <div className="col-md-3 col-6" key={item._id}>
+                            <Container fluid className="col-md-3 col-6" key={item._id}>
                                 <div className="items bg-light p-2 pt-5 m-1">
                                     <Link to={`/productsDetails/${item._id}`}>
                                         <img src={item.image} className="w-50 rounded-circle" alt=""/>
@@ -138,10 +140,10 @@ const Store = () => {
                                         </div>
                                     </Link>
                                 </div>
-                            </div>    
+                            </Container>    
                         )
                         :products.map(item => 
-                            <div className="col-md-3 col-6" key={item._id}>
+                            <Container fluid className="col-md-3 col-6" key={item._id}>
                                 <div className="items bg-light p-2 pt-5 m-1">
                                     <Link to={`/productsDetails/${item._id}`}>
                                         <img src={item.image} className="w-50 rounded-circle" alt=""/>
@@ -159,7 +161,7 @@ const Store = () => {
                                         </div>
                                     </Link>
                                 </div>
-                            </div>    
+                            </Container>    
                         )
                     }
                 </div>

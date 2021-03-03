@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
+import { Container } from 'react-bootstrap';
 import { useForm } from 'react-hook-form';
 import { useHistory } from 'react-router-dom';
 import { UserContext } from '../../App';
@@ -66,7 +67,7 @@ const CheckOut = () => {
     return (
         <div>
             <Header />
-            <div className="row p-5">
+            <Container fluid className="row p-5">
                 <div className="col-md-7 p-md-5">
                     <form onSubmit={handleSubmit(onSubmit)}>
                         <h4>Edit Delivery Details</h4>
@@ -135,7 +136,7 @@ const CheckOut = () => {
                         }
                     </div>
                 </div>
-            </div>
+            </Container>
 
         </div>
     );

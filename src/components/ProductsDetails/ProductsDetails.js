@@ -1,6 +1,7 @@
 import { faMinusCircle, faPlusCircle, faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useContext, useEffect, useState } from 'react';
+import { Container } from 'react-bootstrap';
 import { useHistory, useParams } from 'react-router-dom';
 import { UserContext } from '../../App';
 import Header from '../Header/Header';
@@ -39,7 +40,7 @@ const ProductsDetails = () => {
     return (
         <div>
             <Header />
-            <div className="p-md-5">
+            <Container fluid className="p-md-5">
                 <div className="row p-5">
                     <div className="col-md-6 p-5">
                         <h2>{product.title}</h2>
@@ -54,7 +55,7 @@ const ProductsDetails = () => {
                         <img className="w-75" src={product.image} alt=""/>
                     </div>
                 </div>
-            </div>
+            </Container>
         </div>
     );
 

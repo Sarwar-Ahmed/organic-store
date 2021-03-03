@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import './Header.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faSearch, faShoppingBag, faUserCircle } from '@fortawesome/free-solid-svg-icons';
-import { Nav, Navbar } from 'react-bootstrap';
+import { Container, Nav, Navbar } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { faFacebook, faGooglePlus, faPinterest, faTwitter } from '@fortawesome/free-brands-svg-icons';
 import { UserContext } from '../../App';
@@ -15,6 +15,13 @@ const Header = () => {
     const [admin, setAdmin] = useState([]);
 
     useEffect(() => {
+        fetch( `https://organic-store-by-sarwar.herokuapp.com/admin`)
+        .then(res => res.json())
+        .then(data => {
+            const currentAdmin = data.find(data => data.email === loggedInUser.email);
+            setAdmin(currentAdmin);
+        })
+
         fetch('https://organic-store-by-sarwar.herokuapp.com/cart?email='+loggedInUser.email, {
             method: 'GET',
             headers: {
@@ -27,17 +34,11 @@ const Header = () => {
             setCart(data);
         })
 
-        fetch( `https://organic-store-by-sarwar.herokuapp.com/admin`)
-        .then(res => res.json())
-        .then(data => {
-            const currentAdmin = data.find(data => data.email === loggedInUser.email);
-            setAdmin(currentAdmin);
-        })
     }, [cart, admin])
 
     return (
         <div>
-            <div>
+            <Container fluid >
                 <div className="row p-3">
                     <div class="col-md-4 col-sm-12 col-xs-12">
                         <div>
@@ -86,8 +87,8 @@ const Header = () => {
                         
                     </div>
                 </div>
-            </div>
-            <div className="NavBg d-flex">
+            </Container>
+            <Container fluid className="NavBg d-flex">
                 {
                     admin
                     ?<Navbar expand="lg" className="mr-auto">
@@ -133,7 +134,7 @@ const Header = () => {
                         <Link class="p-3"><a href="/"><FontAwesomeIcon className="socialPrt" icon={faPinterest} style={{height:32, width:32}}></FontAwesomeIcon></a></Link>
                 </div>
                 }
-            </div>
+            </Container>
             
         </div>
     );

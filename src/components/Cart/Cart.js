@@ -1,6 +1,7 @@
 import { faCheck, faTimesCircle } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useContext, useEffect, useState } from 'react';
+import { Container } from 'react-bootstrap';
 import { Link, useHistory } from 'react-router-dom';
 import { UserContext } from '../../App';
 import Header from '../Header/Header';
@@ -56,7 +57,7 @@ const Cart = () => {
     return (
         <div>
             <Header />
-            <div class="p-5 text-center">
+            <Container fluid className="p-5 text-center">
                 <div class="p-md-5">
                     <div class="table-responsive">
                         <table class="table">
@@ -127,7 +128,7 @@ const Cart = () => {
                         <Link to="/checkout" class="customBtn rounded pl-3 pr-3 ml-3 p-2 mt-5">Proceed to Checkout</Link>
                     </div>
                 </div>
-            </div>
+            </Container>
         </div>
     );
 };

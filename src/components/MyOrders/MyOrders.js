@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { Button, ButtonGroup, Dropdown, Table } from 'react-bootstrap';
+import { Button, ButtonGroup, Container, Dropdown, Table } from 'react-bootstrap';
 import { Link, useHistory } from 'react-router-dom';
 import { UserContext } from '../../App';
 import Header from '../Header/Header';
@@ -68,7 +68,7 @@ const MyOrders = () => {
     return (
         <div>
             <Header />
-            <div className="row p-5">
+            <Container fluid className="row p-5">
                 <div className="col-md-8 p-5 bg-white">
                     <Table responsive size="sm">
                         <thead style={{ backgroundColor: "#F4F7FC" }}>
@@ -147,7 +147,7 @@ const MyOrders = () => {
                         <button onClick={() => setIsClicked(true)} className="bg-danger btn text-white rounded">Contact</button>
                     </div>
                 </div>
-            </div>
+            </Container>
         </div>
     );
 };

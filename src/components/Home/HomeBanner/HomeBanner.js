@@ -1,12 +1,13 @@
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
+import { Container } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import './HomeBanner.css'
 
 const HomeBanner = () => {
     return (
-        <div class="row text-light p-5">
+        <Container fluid className="row text-light p-5">
             <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12t">
                 <div class="firstBannerBg p-5 rounded">
                     <div class="">
@@ -31,7 +32,7 @@ const HomeBanner = () => {
                     </div>
                 </div>
             </div>
-        </div>
+        </Container>
     );
 };
 

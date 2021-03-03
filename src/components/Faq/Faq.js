@@ -1,7 +1,7 @@
 import { faPlus, faQuestionCircle } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
-import { Accordion, Card } from 'react-bootstrap';
+import { Accordion, Card, Container } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import Header from '../Header/Header';
 import './faq.css'
@@ -17,7 +17,7 @@ const Faq = () => {
                     <p>We provide <span className="textHighlight">100% organic</span> products</p>
                 </div>
             </div>
-            <div class="p-5">
+            <Container fluid className="p-5">
                 <Accordion defaultActiveKey="0" className="p-md-5">
                     <Card>
                         <Accordion.Toggle as={Card.Header} eventKey="0" >
@@ -110,7 +110,7 @@ const Faq = () => {
                         </Accordion.Collapse>
                     </Card>
                 </Accordion>
-            </div>
+            </Container>
         </div>
     );
 };

@@ -2,12 +2,13 @@ import { faCcDiscover, faCcMastercard, faCcPaypal, faCcVisa } from '@fortawesome
 import { faAngleRight, faClock, faCreditCard, faEnvelope, faHome, faPhone } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
+import { Container } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import './Footer.css';
 const Footer = () => {
     return (
-        <div>
-            <div class="row footerBg p-5 text-light text-muted">
+        <Container fluid className="footerBg">
+            <div class="row p-5 text-light text-muted">
                 <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
                     <a href="index.html"><img src="http://st.ourhtmldemo.com/template/organic_store/images/logo/logo-2.png" alt="Logo" className="p-2 img-fluid"/></a>
                     <p className="p-2">Denouncing pleasures and praising pain was born and I will give you a complete account of the system.</p><p className="p-2">Expound that actual teachings the great explorer of the truth, the master-builder of human happiness no one rejects, likes, or avoids pleasure itself rationally. </p>
@@ -84,7 +85,7 @@ const Footer = () => {
             </div>
             <div class="row footerBottomBg text-light p-3">
                 <div className="col-md-6 pl-5">
-                    <h6 class="mr-auto pt-3">Copyrights © 2015 All Rights Reserved by <Link to="/"><span className="textHighlight">Sarwar</span></Link></h6>
+                    <h6 class="mr-auto pt-3">Copyrights © 2015 All Rights Reserved by <Link to="/"><span className="textHighlight">Organic Store</span></Link></h6>
                 </div>
                 <div class="col-md-6 d-flex pl-5">
                     <Link to="/" className="p-2"><FontAwesomeIcon className="mr-2" style={{height: 45, width:45, color: 'white'}} icon={faCcVisa}></FontAwesomeIcon></Link>
@@ -94,7 +95,7 @@ const Footer = () => {
                     <Link to="/" className="p-2"><FontAwesomeIcon className="mr-2" style={{height: 45, width:45, color: 'white'}} icon={faCcDiscover}></FontAwesomeIcon></Link>
                 </div>
             </div>
-        </div>
+        </Container>
     );
 };
 

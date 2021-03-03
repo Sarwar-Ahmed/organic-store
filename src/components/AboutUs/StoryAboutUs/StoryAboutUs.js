@@ -1,10 +1,11 @@
 import React from 'react';
+import { Container } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import './StoryAboutUs.css'
 
 const StoryAboutUs = () => {
     return (
-        <div class="row p-5">
+        <Container fluid className="row p-5">
             <div class="col-md-6 col-sm-12 p-5">
                 <figure class="mt-5">
                     <img src="http://st.ourhtmldemo.com/template/organic_store/images/about/3.jpg" className="img-fluid" alt=""/>
@@ -50,7 +51,7 @@ const StoryAboutUs = () => {
                     </div>
                 </div>
             </div>
-        </div>
+        </Container>
     );
 };
 

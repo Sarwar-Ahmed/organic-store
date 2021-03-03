@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Container } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import './ProductCategories.css'
 
@@ -13,7 +14,7 @@ const ProductCategories = () => {
         })
     },[categories])
     return (
-        <div>
+        <Container fluid>
             <div class="p-5">
                 <div class="text-center">
                     <div className="delivery_title">
@@ -40,7 +41,7 @@ const ProductCategories = () => {
                     }
                 </div>
             </div>
-        </div>
+        </Container>
     );
 };
 

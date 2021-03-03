@@ -4,6 +4,7 @@ import './ContactUs.css'
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Header from '../Header/Header';
+import { Container } from 'react-bootstrap';
 
 const ContactUs = () => {
     return (
@@ -16,7 +17,7 @@ const ContactUs = () => {
                     <p>We provide <span className="textHightlight">100% organic</span> products</p>
                 </div>
             </div>
-            <div class="row p-5">
+            <Container fluid className="row p-5">
                 <div class="col-md-4 col-sm-6 col-xs-12">
                     <div class="p-3">
                         <h4 className="font-weight-bold">GET IN TOUCH</h4>
@@ -89,7 +90,7 @@ const ContactUs = () => {
                             
                     </div> 
                 </div>
-            </div>
+            </Container>
         </div>
     );
 };

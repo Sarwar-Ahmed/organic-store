@@ -1,9 +1,10 @@
 import React from 'react';
+import { Container } from 'react-bootstrap';
 import './OurFarmers.css'
 
 const OurFarmers = () => {
     return (
-        <div className="p-5">
+        <Container fluid className="p-5">
             <div class="p-5">
                 <div class="text-center">
                     <div className="delivery_title">
@@ -99,7 +100,7 @@ const OurFarmers = () => {
                     </div>
                 </div>
             </div>
-        </div>
+        </Container>
     );
 };
 
