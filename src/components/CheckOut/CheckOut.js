@@ -14,7 +14,7 @@ const CheckOut = () => {
     const history = useHistory();
 
     useEffect(() => {
-        fetch('http://localhost:5000/cart?email='+loggedInUser.email, {
+        fetch('https://organic-store-by-sarwar.herokuapp.com/cart?email='+loggedInUser.email, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
@@ -26,7 +26,7 @@ const CheckOut = () => {
             setCart(data);
         })
 
-        fetch('http://localhost:5000/cart?email='+loggedInUser.email, {
+        fetch('https://organic-store-by-sarwar.herokuapp.com/cart?email='+loggedInUser.email, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
@@ -53,7 +53,7 @@ const CheckOut = () => {
         setOrder(orderItems);
     }
     const handlePlaceOrder = () => {
-        fetch('http://localhost:5000/addOrder', {
+        fetch('https://organic-store-by-sarwar.herokuapp.com/addOrder', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

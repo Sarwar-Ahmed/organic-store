@@ -22,7 +22,7 @@ const AddProducts = () => {
         formData.append('price', data.price);
 
 
-        fetch('http://localhost:5000/addProduct', {
+        fetch('https://organic-store-by-sarwar.herokuapp.com/addProduct', {
             method: 'POST',
             body: formData
         })

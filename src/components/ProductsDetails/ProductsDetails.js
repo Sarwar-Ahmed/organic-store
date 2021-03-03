@@ -11,7 +11,7 @@ const ProductsDetails = () => {
     const [product, setProduct] = useState([]);
     const {id} = useParams();
     useEffect(() => {
-        fetch(`http://localhost:5000/products`)
+        fetch(`https://organic-store-by-sarwar.herokuapp.com/products`)
         .then(res => res.json())
         .then(data => {
             setProduct(data.find(item => item._id === id));
@@ -25,7 +25,7 @@ const ProductsDetails = () => {
         const cartItem = product;
         cartItem.quantity = quantity;
         cartItem.email = loggedInUser.email;
-        fetch('http://localhost:5000/addCart', {
+        fetch('https://organic-store-by-sarwar.herokuapp.com/addCart', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

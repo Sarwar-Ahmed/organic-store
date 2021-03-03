@@ -12,7 +12,7 @@ const AddAdmin = () => {
     const history = useHistory();
 
     useEffect(() => {
-        fetch( `http://localhost:5000/admin`)
+        fetch( `https://organic-store-by-sarwar.herokuapp.com/admin`)
         .then(res => res.json())
         .then(data => {
             setAdmin(data);
@@ -20,7 +20,7 @@ const AddAdmin = () => {
     }, [admin])
 
     const onSubmit = (data) => {
-        fetch('http://localhost:5000/addAdmin', {
+        fetch('https://organic-store-by-sarwar.herokuapp.com/addAdmin', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -32,7 +32,7 @@ const AddAdmin = () => {
     }
     
     const handleDeleteAdmin = (id) => {
-        fetch(`http://localhost:5000/deleteAdmin/${id}`, {
+        fetch(`https://organic-store-by-sarwar.herokuapp.com/deleteAdmin/${id}`, {
             method: 'DELETE'
         })
         .then(res => res.json())

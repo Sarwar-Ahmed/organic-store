@@ -6,7 +6,7 @@ const ProductCategories = () => {
     const [categories, setCategories] = useState([]);
 
     useEffect(() => {
-        fetch(`http://localhost:5000/category`)
+        fetch(`https://organic-store-by-sarwar.herokuapp.com/category`)
         .then(res => res.json())
         .then(data => {
             setCategories(data);

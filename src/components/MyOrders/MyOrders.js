@@ -19,7 +19,7 @@ const MyOrders = () => {
 
     const handleStatus = (status, id) => {
         setStatus(status);
-        fetch(`http://localhost:5000/updateOrders`,{
+        fetch(`https://organic-store-by-sarwar.herokuapp.com/updateOrders`,{
             method: 'PATCH',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({status, id})
@@ -34,26 +34,26 @@ const MyOrders = () => {
     }
 
     useEffect(() => {
-        fetch(`http://localhost:5000/orders`)
+        fetch(`https://organic-store-by-sarwar.herokuapp.com/orders`)
         .then(res => res.json())
         .then(data => {
             setOrder(data.filter(item => item.email === loggedInUser.email));
         })
 
-        fetch(`http://localhost:5000/orders`)
+        fetch(`https://organic-store-by-sarwar.herokuapp.com/orders`)
         .then(res => res.json())
         .then(data => {
             setAdminOrders(data);
         })
 
-        fetch( `http://localhost:5000/admin`)
+        fetch( `https://organic-store-by-sarwar.herokuapp.com/admin`)
         .then(res => res.json())
         .then(data => {
             const currentAdmin = data.find(data => data.email === loggedInUser.email);
             setAdmin(currentAdmin);
         })
 
-        fetch('http://localhost:5000/cart?email='+loggedInUser.email, {
+        fetch('https://organic-store-by-sarwar.herokuapp.com/cart?email='+loggedInUser.email, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',

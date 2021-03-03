@@ -15,7 +15,7 @@ const Header = () => {
     const [admin, setAdmin] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/cart?email='+loggedInUser.email, {
+        fetch('https://organic-store-by-sarwar.herokuapp.com/cart?email='+loggedInUser.email, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
@@ -27,7 +27,7 @@ const Header = () => {
             setCart(data);
         })
 
-        fetch( `http://localhost:5000/admin`)
+        fetch( `https://organic-store-by-sarwar.herokuapp.com/admin`)
         .then(res => res.json())
         .then(data => {
             const currentAdmin = data.find(data => data.email === loggedInUser.email);

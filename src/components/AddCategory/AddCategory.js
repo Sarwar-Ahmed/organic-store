@@ -19,7 +19,7 @@ const AddCategory = () => {
         formData.append('file', file);
         formData.append('category', data.category);
 
-        fetch('http://localhost:5000/addCategory', {
+        fetch('https://organic-store-by-sarwar.herokuapp.com/addCategory', {
             method: 'POST',
             body: formData
         })

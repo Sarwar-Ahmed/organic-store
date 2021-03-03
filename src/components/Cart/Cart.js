@@ -14,7 +14,7 @@ const Cart = () => {
     const history = useHistory();
 
     useEffect(() => {
-        fetch('http://localhost:5000/cart?email='+loggedInUser.email, {
+        fetch('https://organic-store-by-sarwar.herokuapp.com/cart?email='+loggedInUser.email, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
@@ -26,7 +26,7 @@ const Cart = () => {
             setCart(data);
         })
 
-        fetch('http://localhost:5000/cart?email='+loggedInUser.email, {
+        fetch('https://organic-store-by-sarwar.herokuapp.com/cart?email='+loggedInUser.email, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
@@ -41,7 +41,7 @@ const Cart = () => {
 
 
     const handleRemoveCartItem = (id) => {
-        fetch(`http://localhost:5000/deleteFromCart/${id}`, {
+        fetch(`https://organic-store-by-sarwar.herokuapp.com/deleteFromCart/${id}`, {
             method: 'DELETE'
         })
         .then(res => res.json())

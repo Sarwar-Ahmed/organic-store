@@ -19,26 +19,26 @@ const Store = () => {
     const [admin, setAdmin] = useState([]);
 
     useEffect(() => {
-        fetch(`http://localhost:5000/category`)
+        fetch(`https://organic-store-by-sarwar.herokuapp.com/category`)
         .then(res => res.json())
         .then(data => {
             setCategories(data);
         })
 
-        fetch(`http://localhost:5000/products`)
+        fetch(`https://organic-store-by-sarwar.herokuapp.com/products`)
         .then(res => res.json())
         .then(data => {
             setAllProducts(data);
             // console.log("products added")
         })
 
-        fetch(`http://localhost:5000/products`)
+        fetch(`https://organic-store-by-sarwar.herokuapp.com/products`)
         .then(res => res.json())
         .then(data => {
             setSelectedProductsHome(data.filter(item => item.category === clickedCategory));
         })
 
-        fetch( `http://localhost:5000/admin`)
+        fetch( `https://organic-store-by-sarwar.herokuapp.com/admin`)
         .then(res => res.json())
         .then(data => {
             const currentAdmin = data.find(data => data.email === loggedInUser.email);
@@ -58,7 +58,7 @@ const Store = () => {
         setProducts(selectedItems);
     }
     const handleDeleteProduct = (id) =>{
-        fetch(`http://localhost:5000/deleteProduct/${id}`, {
+        fetch(`https://organic-store-by-sarwar.herokuapp.com/deleteProduct/${id}`, {
             method: 'DELETE'
         })
         .then(res => res.json())
