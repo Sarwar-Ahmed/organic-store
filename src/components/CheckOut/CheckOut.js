@@ -50,7 +50,7 @@ const CheckOut = () => {
         orderItems.businessName = data.businessName;
         orderItems.instructor = data.instructor;
         orderItems.email= loggedInUser.email;
-        orderItems.status= "On going";
+        orderItems.status= "Pending";
         orderItems.total = total.reduce((previousScore, currentScore, index) => previousScore + currentScore, 0)
         setOrder(orderItems);
     }
