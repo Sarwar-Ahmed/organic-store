@@ -123,7 +123,7 @@ const MyOrders = () => {
                         </tbody>
                     </Table>
                 </div>
-                <div className="col-md-2 p-5 rounded">
+                <div className="col-md-2 p-2 rounded">
                     <div className="bg-light p-3" style={{borderRadius: 20, textAlign: "left"}}>
                         <div>
                             <img src="https://iili.io/2vJOzb.png" alt="" className="w-25"/>
