@@ -71,7 +71,7 @@ const MyOrders = () => {
         <div>
             <Header />
             <Container fluid className="row p-5">
-                <div className="col-md-9 p-5 bg-white">
+                <div className="col-md-10 p-5 bg-white">
                     <Table responsive size="sm">
                         <thead style={{ backgroundColor: "#F4F7FC" }}>
                             <tr>
@@ -123,7 +123,7 @@ const MyOrders = () => {
                         </tbody>
                     </Table>
                 </div>
-                <div className="col-md-3 p-5 rounded">
+                <div className="col-md-2 p-5 rounded">
                     <div className="bg-light p-3" style={{borderRadius: 20, textAlign: "left"}}>
                         <div>
                             <img src="https://iili.io/2vJOzb.png" alt="" className="w-25"/>
