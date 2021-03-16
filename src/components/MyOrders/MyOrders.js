@@ -1,3 +1,5 @@
+import { faPhone } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useContext, useEffect, useState } from 'react';
 import { Button, ButtonGroup, Container, Dropdown, Table } from 'react-bootstrap';
 import { Link, useHistory } from 'react-router-dom';
@@ -92,7 +94,7 @@ const MyOrders = () => {
                                         <td>{orderItem._id}</td>
                                         <td>৳{orderItem.total}</td>
                                         <td>{orderItem.roadNo}, {orderItem.address}</td>
-                                        <td>৳{orderItem.phone}</td>
+                                        <td><FontAwesomeIcon icon={faPhone} className="mr-1"></FontAwesomeIcon>{orderItem.phone}</td>
                                         <td>
                                             <Dropdown as={ButtonGroup}>
                                                 <Button variant="" className={orderItem.status==="Pending"? "text-danger": orderItem.status==="On going"? "text-warning":"text-success"}>{orderItem.status}</Button>
@@ -114,7 +116,7 @@ const MyOrders = () => {
                                         <td>{orderItem._id}</td>
                                         <td>৳{saveTotal.reduce((previousScore, currentScore, index) => previousScore + currentScore, 0)}</td>
                                         <td>{orderItem.roadNo}, {orderItem.address}</td>
-                                        <td>৳{orderItem.phone}</td>
+                                        <td><FontAwesomeIcon icon={faPhone} className="mr-1"></FontAwesomeIcon>{orderItem.phone}</td>
                                         <td><button className={orderItem.status==="Pending"?"btn btn-danger ml-auto":orderItem.status==="On going"?"btn btn-warning ml-auto":"btn btn-success ml-auto"}>{orderItem.status}</button></td>
                                     </tr>)
                             }
