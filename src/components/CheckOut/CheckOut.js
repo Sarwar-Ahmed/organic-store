@@ -44,6 +44,7 @@ const CheckOut = () => {
         setClickedContinue(true);
         const orderItems = {...cart};
         orderItems.address = data.address;
+        orderItems.phone = data.phone;
         orderItems.roadNo = data.roadNo;
         orderItems.flat = data.flat;
         orderItems.businessName = data.businessName;
@@ -74,6 +75,10 @@ const CheckOut = () => {
                         <hr/>
                         <input name="address" className="form-control bg-light" defaultValue="" ref={register({ required: true })} placeholder="Address" />
                         {errors.address && <span className="error text-danger">Address is required</span>}
+                        <br />
+
+                        <input name="phone" className="form-control bg-light" defaultValue="" ref={register({ required: true })} placeholder="Phone Number" />
+                        {errors.phone && <span className="error text-danger">Phone Number is required</span>}
                         <br />
 
                         <input name="roadNo" className="form-control bg-light" defaultValue="" ref={register({ required: true })} placeholder="Road No" />
