@@ -15,12 +15,6 @@ const Header = () => {
     const [admin, setAdmin] = useState([]);
 
     useEffect(() => {
-        fetch( `https://organic-store-by-sarwar.herokuapp.com/admin`)
-        .then(res => res.json())
-        .then(data => {
-            const currentAdmin = data.find(data => data.email === loggedInUser.email);
-            setAdmin(currentAdmin);
-        })
 
         fetch('https://organic-store-by-sarwar.herokuapp.com/cart?email='+loggedInUser.email, {
             method: 'GET',
@@ -34,7 +28,13 @@ const Header = () => {
             setCart(data);
         })
 
-    }, [cart, admin])
+        fetch( `https://organic-store-by-sarwar.herokuapp.com/admin`)
+        .then(res => res.json())
+        .then(data => {
+            const currentAdmin = data.find(data => data.email === loggedInUser.email);
+            setAdmin(currentAdmin);
+        })
+    }, [cart]);
 
     return (
         <div>
@@ -55,9 +55,34 @@ const Header = () => {
                     </div>
                     <div className="col-md-4 col-sm-7 col-xs-6 pdt-14 w-100 ">
                         {
-                            admin
+                            loggedInUser.email
+                            ? admin
                             ?<div>
                                 <h1 className="text-danger ml-5">ADMIN PANEL</h1>
+                            </div>
+                            :<div className="d-flex">
+                                <div class="login_option float_left d-flex p-2 mr-3 ml-3">
+                                    <div class="p-2">
+                                        <FontAwesomeIcon className="iconBg" style={{height:45, width:45}} icon={faUserCircle}></FontAwesomeIcon>
+                                    </div>
+                                    <div class="login-info p-1">
+                                        <div class="welcome">Welcome!</div>
+                                        <div>
+                                        {
+                                            loggedInUser.isSiggnedIn
+                                            ?
+                                            <Link to="/" className=""><small className="textHighlight">{loggedInUser.name}</small></Link>
+                                            :<Link to="/login" className="btn iconBg font-weight-bold">Login</Link>
+                                        }
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="p-3">
+                                    <Link to="/cart">
+                                        <FontAwesomeIcon className="iconBg" icon={faShoppingBag} style={{height:32, width:32}}></FontAwesomeIcon>
+                                        <span className="font-weight-bold text-danger cartN p-1">{cart.length}</span>
+                                    </Link>
+                                </div>
                             </div>
                             :<div className="d-flex">
                             <div class="login_option float_left d-flex p-2 mr-3 ml-3">
@@ -90,7 +115,8 @@ const Header = () => {
             </Container>
             <Container fluid className="NavBg d-flex">
                 {
-                    admin
+                    loggedInUser.email
+                    ? admin 
                     ?<Navbar expand="lg" className="mr-auto">
                         <Navbar.Toggle aria-controls="basic-navbar-nav" />
                         <Navbar.Collapse id="basic-navbar-nav">
@@ -125,6 +151,22 @@ const Header = () => {
                             </Nav>
                         </Navbar.Collapse>
                     </Navbar>
+                    :<Navbar expand="lg" className="mr-auto">
+                    <Navbar.Toggle aria-controls="basic-navbar-nav" />
+                    <Navbar.Collapse id="basic-navbar-nav">
+                        <Nav className="mr-auto">
+                            <Link to="/home" className="text-light font-weight-bold m-2 ml-3">HOME</Link>
+                            <Link to="/aboutUs" className="text-light font-weight-bold m-2 ml-3">ABOUT US</Link>
+                            <Link to="/store/:clickedCategory" className="text-light font-weight-bold m-2 ml-3">STORE</Link>
+                            <Link to="/myOrders" className="text-light font-weight-bold m-2 ml-3">MY ORDERS</Link>
+                            <Link to="/faq" className="text-light font-weight-bold m-2 ml-3">FAQ</Link>
+                            <Link to="/contactUs" className="text-light font-weight-bold m-2 ml-3">CONTACT US</Link>
+                            {
+                                loggedInUser.isSiggnedIn && <Link to="/login" onClick={() => setLoggedInUser({})} className="text-light font-weight-bold m-2 ml-3">LOGOUT</Link>
+                            }
+                        </Nav>
+                    </Navbar.Collapse>
+                </Navbar>
                 }
                 {
                     !admin && <div class="p-1 mr-5 d-flex">
