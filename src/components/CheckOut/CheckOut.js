@@ -47,7 +47,6 @@ const CheckOut = () => {
         orderItems.phone = data.phone;
         orderItems.roadNo = data.roadNo;
         orderItems.flat = data.flat;
-        orderItems.businessName = data.businessName;
         orderItems.instructor = data.instructor;
         orderItems.email= loggedInUser.email;
         orderItems.status= "Pending";
@@ -89,12 +88,8 @@ const CheckOut = () => {
                         {errors.flat && <span className="error text-danger">Flat, suite or floor is required</span>}
                         <br />
 
-                        <input name="businessName" className="form-control bg-light" defaultValue="" ref={register({ required: true })} placeholder="Business Name" />
-                        {errors.businessName && <span className="error text-danger">Business Name is required</span>}
-                        <br />
-
-                        <input name="instructor" className="form-control bg-light" defaultValue="" ref={register({ required: true })} placeholder="Add delivery instructor" />
-                        {errors.instructor && <span className="error text-danger">Delivery instructor is required</span>}
+                        <input name="instructor" className="form-control bg-light" defaultValue="" ref={register({ required: true })} placeholder="Add Name" />
+                        {errors.instructor && <span className="error text-danger">Delivery instructor name is required</span>}
                         <br />
 
                         <button type="submit" className="customBtn pl-3 pr-3 p-2 rounded">Save &amp; Continue</button>
