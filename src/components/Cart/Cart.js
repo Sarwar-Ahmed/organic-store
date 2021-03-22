@@ -97,13 +97,7 @@ const Cart = () => {
                         </table>
                     </div>
                 </div>
-                <div className="row p-md-5 mx-auto">
-                    <div class="col-md-4 p-5">
-                        <div className="d-flex">
-                            <input type="text" placeholder="Enter Coupon Code..." class=""/>
-                            <Link to="" class="customBtn rounded pl-3 pr-3 ml-3">Apply Coupon</Link>
-                        </div>
-                    </div>
+                <div className="p-md-5 mx-auto">
                     <div class="col-md-6">
                         <h4>Cart Totals</h4>
                         <div class="table-responsive">

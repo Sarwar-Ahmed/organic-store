@@ -198,7 +198,7 @@ const Login = () => {
                                 <button onClick={googleSingIn} className="btn font-weight-bold text-dark"><span><img src="https://iili.io/2xw5TQ.png" alt="" className="m-1" style={{ width: 16 }} /></span>Continue with Google</button>
                             </div>
                             <div className="border rounded p-1 pl-md-5 pr-md-5 ">
-                                <button onClick={googleSingIn} className="btn font-weight-bold text-dark"><span><FontAwesomeIcon icon={faFacebook} className="fbIcon mr-2"></FontAwesomeIcon></span>Continue with Facebook</button>
+                                <button className="btn font-weight-bold text-dark"><span><FontAwesomeIcon icon={faFacebook} className="fbIcon mr-2"></FontAwesomeIcon></span>Continue with Facebook</button>
                             </div>
                         </div>
                     </div>
